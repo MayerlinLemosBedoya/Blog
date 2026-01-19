@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biología Ilustrativa | Apoya Biología Ilustrativa</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="Favicon.png">
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+<!-- 🔝 Header -->
+<header class="bg-green-100 shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+    <a href="/index.html">
+      <img src="/Logofinal.png" alt="Logo de Biología Ilustrativa" class="h-16 w-auto object-contain">
+    </a>
+
+    <!-- Botón móvil -->
+    <button id="menu-btn" class="md:hidden text-green-800 focus:outline-none">
+      ☰
+    </button>
+
+    <!-- Menú escritorio -->
+    <nav id="menu" class="hidden md:flex space-x-6">
+      <a href="/index.html" class="text-green-800 hover:underline">Inicio</a>
+      <a href="/index.html#sobre-mi" class="text-green-800 hover:underline">Sobre mí</a>
+      <a href="https://portafoliodemayerlinlemosbedoya.netlify.app/aprendizaje/tarjetapresentaci%C3%B3n/" class="text-green-800 hover:underline">Portafolio</a>
+      <a href="/articulo1.html" class="text-green-800 hover:underline">Blog</a>
+      <a href="mailto:mayerlin.lemos.ilustra@gmail.com" class="text-green-800 hover:underline">Contacto</a>
+    </nav>
+  </div>
+
+   <!-- Menú móvil desplegable -->
+  <div id="mobile-menu" class="hidden flex-col bg-green-50 px-4 pb-4 md:hidden space-y-6 text-center">
+    <a href="/index.html" class="py-2 text-green-800 hover:underline">Inicio</a>
+    <a href="/index.html#sobre-mi" class="py-2 text-green-800 hover:underline">Sobre mí</a>
+    <a href="https://portafoliodemayerlinlemosbedoya.netlify.app/aprendizaje/tarjetapresentaci%C3%B3n/" class="py-2 text-green-800 hover:underline">Portafolio</a>
+    <a href="/articulo1.html" class="py-2 text-green-800 hover:underline">Blog</a>
+    <a href="mailto:mayerlin.lemos.ilustra@gmail.com" class="py-2 text-green-800 hover:underline">Contacto</a>
+  </div>
+</header>
+
+  <!-- Contenido principal -->
+  <main class="max-w-3xl mx-auto p-6 leading-relaxed" id="inicio">
+    <h2 class="text-3xl font-bold text-green-800 mb-6">
+      Apoya Biología Ilustrativa
+    </h2>
+
+    <p class="text-gray-700 mb-4">
+      Este proyecto nace del cruce entre la microbiología, el arte y la divulgación.
+      Todo el contenido es gratuito y creado de forma independiente.
+    </p>
+
+    <p class="text-gray-700 mb-6">
+      Si este blog te ha servido para aprender, reflexionar o mirar la ciencia
+      desde otro lugar, puedes apoyarlo voluntariamente a través de este codigo QR
+    </p>
+    <img src="Codigo QR.jpg" alt="Código QR para apoyar Biología Ilustrativa" class="w-80 h-80 mx-auto mb-6">
+  </main>
+
+  <!-- 🌱 FOOTER -->
+  <footer class="bg-green-100 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-sm text-gray-800">
+      © 2025 · Biología Ilustrativa · Mayerlin Lemos
+    </div>
+  </footer>
+
+  <script>
+    // JavaScript para el menú móvil
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
