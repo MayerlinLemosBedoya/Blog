@@ -3,103 +3,304 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Biología Ilustrativa | ¿Es nuestro cabello el reservorio de un ecosistema microbiano?</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>¿Nuestro cabello alberga un ecosistema microbiano? | Biología Ilustrativa</title>
   <link rel="icon" type="image/x-icon" href="Favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --verde-oscuro: #1a3d2b;
+      --verde-medio: #2d6a4f;
+      --verde-claro: #74c69d;
+      --verde-palido: #d8f3dc;
+      --verde-mint: #f0faf3;
+      --acento: #40916c;
+      --texto: #1b2d23;
+      --texto-suave: #4a6358;
+      --blanco: #ffffff;
+      --sombra: 0 4px 24px rgba(26,61,43,0.10);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--blanco); color: var(--texto); line-height: 1.8; }
+
+    /* HEADER */
+    header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--verde-palido); padding: 0.75rem 2rem; }
+    .header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    header img { height: 52px; width: auto; object-fit: contain; }
+    nav { display: flex; align-items: center; gap: 2rem; }
+    nav a { font-weight: 500; font-size: 0.9rem; color: var(--verde-oscuro); text-decoration: none; letter-spacing: 0.03em; position: relative; padding-bottom: 2px; transition: color 0.2s; }
+    nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--verde-claro); transition: width 0.3s ease; }
+    nav a:hover { color: var(--acento); }
+    nav a:hover::after { width: 100%; }
+    .menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--verde-oscuro); }
+    .mobile-menu { display: none; flex-direction: column; background: var(--verde-mint); padding: 1rem 2rem 1.5rem; gap: 1rem; border-top: 1px solid var(--verde-palido); }
+    .mobile-menu a { font-weight: 500; color: var(--verde-oscuro); text-decoration: none; font-size: 1rem; padding: 0.4rem 0; border-bottom: 1px solid var(--verde-palido); }
+    .mobile-menu.open { display: flex; }
+
+    /* HERO */
+    .article-hero { background-color: var(--verde-oscuro); padding: 5rem 2rem 4rem; position: relative; overflow: hidden; text-align: center; }
+    .article-hero::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Ccircle cx='80' cy='80' r='38' fill='none' stroke='%2374c69d' stroke-width='1.2' opacity='0.25'/%3E%3Ccircle cx='80' cy='80' r='26' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.18'/%3E%3Ccircle cx='66' cy='72' r='5' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.20'/%3E%3Crect x='160' y='30' width='18' height='120' rx='9' fill='none' stroke='%2374c69d' stroke-width='1.2' opacity='0.20'/%3E%3Cpath d='M160 50 Q178 60 160 70 Q178 80 160 90 Q178 100 160 110 Q178 120 160 130' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.22'/%3E%3Cellipse cx='400' cy='70' rx='14' ry='40' fill='none' stroke='%2374c69d' stroke-width='1.2' opacity='0.20'/%3E%3Ccircle cx='510' cy='90' r='32' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.18'/%3E%3C/svg%3E"); background-size: 600px 600px; background-repeat: repeat; z-index: 0; }
+    .article-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(26,61,43,0.90) 0%, rgba(45,106,79,0.82) 60%, rgba(64,145,108,0.86) 100%); z-index: 0; }
+    .article-hero-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+    .hero-tag { display: inline-block; background: rgba(116,198,157,0.2); border: 1px solid rgba(116,198,157,0.4); color: var(--verde-claro); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 1.2rem; }
+    .article-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: var(--blanco); line-height: 1.2; margin-bottom: 1rem; }
+    .article-hero h1 em { font-style: italic; color: var(--verde-claro); }
+    .article-meta { color: rgba(255,255,255,0.60); font-size: 0.85rem; }
+
+    /* CONTENIDO */
+    .article-content { max-width: 740px; margin: 0 auto; padding: 4rem 1.5rem 5rem; }
+    .intro { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic; color: var(--texto-suave); border-left: 3px solid var(--verde-claro); padding-left: 1.2rem; margin-bottom: 2.5rem; line-height: 1.7; }
+    .article-content p { font-size: 1rem; color: var(--texto); margin-bottom: 1.4rem; line-height: 1.85; }
+    .article-content h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--verde-oscuro); margin: 3rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--verde-palido); }
+    .article-content strong { color: var(--verde-medio); }
+    .article-content em { font-style: italic; }
+
+    /* Microorganismos cards */
+    .microbes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+    .microbe-card { background: var(--blanco); border: 1px solid var(--verde-palido); border-radius: 14px; padding: 1.4rem; box-shadow: var(--sombra); transition: transform 0.2s, box-shadow 0.2s; }
+    .microbe-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(26,61,43,0.14); }
+    .microbe-card .mic-icon { font-size: 1.8rem; margin-bottom: 0.5rem; display: block; }
+    .microbe-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--verde-oscuro); margin-bottom: 0.5rem; }
+    .microbe-card .species { font-style: italic; color: var(--acento); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .microbe-card p { font-size: 0.87rem; color: var(--texto-suave); line-height: 1.6; margin: 0; }
+
+    /* Enfermedades */
+    .disease-list { display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0; }
+    .disease-item { display: grid; grid-template-columns: 48px 1fr; gap: 1rem; align-items: start; background: var(--blanco); border: 1px solid var(--verde-palido); border-radius: 12px; padding: 1.2rem; box-shadow: var(--sombra); }
+    .disease-icon { width: 48px; height: 48px; background: var(--verde-mint); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+    .disease-body h4 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--verde-oscuro); margin-bottom: 0.4rem; }
+    .disease-body p { font-size: 0.9rem; color: var(--texto-suave); line-height: 1.7; margin: 0; }
+    .disease-body strong { color: var(--verde-medio); }
+
+    /* Highlight y quote */
+    .highlight-box { background: var(--verde-mint); border: 1px solid var(--verde-palido); border-left: 4px solid var(--verde-claro); border-radius: 12px; padding: 1.5rem 1.8rem; margin: 1.5rem 0; font-size: 0.97rem; color: var(--texto-suave); line-height: 1.8; }
+    .highlight-box strong { color: var(--verde-oscuro); }
+    .quote { background: var(--verde-mint); border-left: 4px solid var(--verde-claro); border-radius: 0 12px 12px 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0; font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; color: var(--verde-oscuro); }
+
+    /* Consejos */
+    .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .tip-card { background: var(--verde-mint); border: 1px solid var(--verde-palido); border-radius: 12px; padding: 1.2rem; text-align: center; }
+    .tip-card .tip-icon { font-size: 1.6rem; margin-bottom: 0.5rem; display: block; }
+    .tip-card p { font-size: 0.87rem; color: var(--texto-suave); line-height: 1.6; margin: 0; }
+
+    /* Referencias */
+    .refs-wrap { background: var(--verde-mint); border: 1px solid var(--verde-palido); border-radius: 14px; padding: 1.5rem 1.8rem; margin: 2rem 0; }
+    .refs-wrap h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--verde-oscuro); margin-bottom: 1rem; }
+    .ref-item { display: flex; gap: 0.8rem; padding: 0.8rem 0; border-bottom: 1px solid var(--verde-palido); }
+    .ref-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .ref-item span { color: var(--acento); font-size: 1rem; flex-shrink: 0; }
+    .ref-item p { font-size: 0.87rem; color: var(--texto-suave); line-height: 1.6; margin: 0; }
+    .ref-item strong { color: var(--verde-oscuro); }
+
+    /* Cierre */
+    .article-closing { background: var(--verde-oscuro); border-radius: 16px; padding: 2.5rem; margin: 3rem 0 2rem; }
+    .article-closing p { color: rgba(255,255,255,0.80); font-size: 1rem; line-height: 1.8; margin-bottom: 1rem; }
+    .article-closing p:last-child { margin: 0; }
+    .article-closing strong { color: var(--verde-claro); }
+
+    .article-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; padding-top: 2rem; border-top: 1px solid var(--verde-palido); }
+    .article-tag-item { background: var(--verde-mint); border: 1px solid var(--verde-palido); color: var(--acento); font-size: 0.78rem; font-weight: 500; padding: 0.3rem 0.8rem; border-radius: 100px; }
+
+    /* Footer */
+    footer { background: var(--verde-oscuro); border-top: 1px solid rgba(116,198,157,0.2); padding: 2.5rem 2rem; text-align: center; }
+    footer p { color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-bottom: 0.4rem; }
+    footer a { color: var(--verde-claro); text-decoration: none; }
+
+    .fab { position: fixed; bottom: 1.8rem; right: 1.8rem; background: var(--acento); color: var(--blanco); font-weight: 600; font-size: 0.88rem; padding: 0.85rem 1.4rem; border-radius: 100px; text-decoration: none; box-shadow: 0 6px 20px rgba(45,106,79,0.4); display: flex; align-items: center; gap: 0.5rem; z-index: 999; transition: transform 0.2s, box-shadow 0.2s; }
+    .fab:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(45,106,79,0.5); }
+
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .menu-btn { display: block; }
+      .fab span:last-child { display: none; }
+      .article-content { padding: 3rem 1.2rem 4rem; }
+      .microbes-grid { grid-template-columns: 1fr; }
+      .tips-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .article-hero-inner > * { animation: fadeUp 0.7s ease both; }
+    .article-hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
+    .article-hero-inner > *:nth-child(2) { animation-delay: 0.25s; }
+    .article-hero-inner > *:nth-child(3) { animation-delay: 0.4s; }
+  </style>
 </head>
-<body class="bg-white text-gray-800 font-sans">
+<body>
 
-<!-- 🔝 Header -->
-<header class="bg-green-100 shadow-md sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
-    <a href="index.html">
-      <img src="Logofinal.png" alt="Logo de Biología Ilustrativa" class="h-16 w-auto object-contain">
-    </a>
-
-    <!-- Botón móvil -->
-    <button id="menu-btn" class="md:hidden text-green-800 focus:outline-none">
-      ☰
-    </button>
-
-    <!-- Menú escritorio -->
-    <nav id="menu" class="hidden md:flex space-x-6">
-      <a href="index.html" class="text-green-800 hover:underline">Inicio</a>
-      <a href="index.html#sobre-mi" class="text-green-800 hover:underline">Sobre mí</a>
-      <a href="https://portafoliodemayerlinlemosbedoya.netlify.app/aprendizaje/tarjetapresentaci%C3%B3n/" class="text-green-800 hover:underline">Portafolio</a>
-      <a href="articulo1.html" class="text-green-800 hover:underline">Blog</a>
-      <a href="mailto:mayerlin.lemos.ilustra@gmail.com" class="text-green-800 hover:underline">Contacto</a>
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html"><img src="Logofinal.png" alt="Logo de Biología Ilustrativa"></a>
+    <button class="menu-btn" id="menu-btn">☰</button>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="index.html#sobre-mi">Sobre mí</a>
+      <a href="https://portafoliodemayerlinlemosbedoya.netlify.app/aprendizaje/tarjetapresentaci%C3%B3n/" target="_blank">Portafolio</a>
+      <a href="articulo1.html">Blog</a>
+      <a href="mailto:mayerlin.lemos.ilustra@gmail.com">Contacto</a>
     </nav>
   </div>
-
-   <!-- Menú móvil desplegable -->
-  <div id="mobile-menu" class="hidden flex-col bg-green-50 px-4 pb-4 md:hidden space-y-6 text-center">
-    <a href="index.html" class="py-2 text-green-800 hover:underline">Inicio</a>
-    <a href="index.html#sobre-mi" class="py-2 text-green-800 hover:underline">Sobre mí</a>
-    <a href="https://portafoliodemayerlinlemosbedoya.netlify.app/aprendizaje/tarjetapresentaci%C3%B3n/" class="py-2 text-green-800 hover:underline">Portafolio</a>
-    <a href="articulo1.html" class="py-2 text-green-800 hover:underline">Blog</a>
-    <a href="mailto:mayerlin.lemos.ilustra@gmail.com" class="py-2 text-green-800 hover:underline">Contacto</a>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Inicio</a>
+    <a href="index.html#sobre-mi">Sobre mí</a>
+    <a href="https://portafoliodemayerlinlemosbedoya.netlify.app/aprendizaje/tarjetapresentaci%C3%B3n/" target="_blank">Portafolio</a>
+    <a href="articulo1.html">Blog</a>
+    <a href="mailto:mayerlin.lemos.ilustra@gmail.com">Contacto</a>
   </div>
 </header>
 
-  <!-- Contenido principal -->
-  <main class="max-w-3xl mx-auto p-6 leading-relaxed">
+<!-- HERO -->
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <span class="hero-tag">Microbioma · Salud · Divulgación</span>
+    <h1>¿En nuestro cabello habita un <em>ecosistema microbiano</em>?</h1>
+    <p class="article-meta">Por Mayerlin Lemos · 18 de diciembre de 2025</p>
+  </div>
+</div>
 
-    <h2 class="text-3xl font-semibold text-green-800 mb-4">¿Es nuestro cabello el reservorio de un ecosistema microbiano?</h2>
-    <p class="text-sm text-gray-600 mb-8">Publicado el 18 de diciembre de 2025</p>
+<!-- CONTENIDO -->
+<article class="article-content">
 
-    <p class="mb-4">Comencemos este artículo con una pregunta fundamental:</p>
-    <p class="mb-4"><strong>¿qué es realmente lo que conocemos como cabello?</strong></p>
-    <p class="mb-4">Si lo observamos desde una perspectiva estética, el cabello es ese elemento que aporta armonía a nuestro rostro y nos permite diferenciarnos unos de otros.</p>
-    <p class="mb-4">Desde un contexto social y cultural, el cabello posee una profunda carga histórica; en comunidades afrodescendientes, por ejemplo, ha sido símbolo de identidad y resistencia.</p>
-    <p class="mb-4">Sin embargo, cuando lo analizamos desde el punto de vista científico, el cabello es una estructura filamentosa compuesta principalmente por queratina, que crece a partir de la piel del cuero cabelludo. Está formado por una raíz, localizada dentro del folículo piloso, y un tallo, que corresponde a la porción visible.</p>
-    <p class="mb-4">Además de su función estética, el cabello cumple roles biológicos importantes como la protección frente a la radiación solar, la regulación térmica y la protección sensorial.</p>
-    <p class="mb-4">Ahora bien, surge un interrogante clave:</p>
-    <p class="mb-4"><strong>Si el cuero cabelludo es piel viva, rica en lípidos, humedad y nutrientes…</strong></p>
-    <p class="mb-4"><strong>¿podría ser también el hogar de un ecosistema microbiano complejo?</strong></p>
-    <p class="mb-4">La respuesta es sí. Nuestro cuero cabelludo, al igual que otras regiones de la piel, alberga una comunidad diversa de microorganismos que conforman lo que conocemos como microbiota capilar. Este microbioma está compuesto principalmente por hongos y bacterias, cuya presencia y abundancia están estrechamente relacionadas con las condiciones fisicoquímicas de esta zona, como la producción de sebo, la humedad y el pH.</p>
-    <p class="mb-4">Entre los hongos, el género <em>Malassezia</em> es el predominante. Estas levaduras lipofílicas forman parte del microbioma normal del cuero cabelludo y utilizan los lípidos del sebo como fuente de carbono. En condiciones de equilibrio, <em>Malassezia</em> convive de manera armónica con el huésped; sin embargo, cuando su abundancia aumenta o su actividad metabólica se altera, puede asociarse con procesos inflamatorios.</p>
-    <p class="mb-4">En cuanto a las bacterias, destacan principalmente los géneros <em>Cutibacterium</em> (anteriormente <em>Propionibacterium</em>) y <em>Staphylococcus</em>. <em>Cutibacterium</em> spp. participa en el metabolismo de los lípidos cutáneos y contribuye al mantenimiento del ambiente del cuero cabelludo, mientras que <em>Staphylococcus</em> incluye especies comensales, como <em>S. epidermidis</em>, y otras potencialmente patógenas, cuya proliferación excesiva puede alterar el equilibrio microbiano.</p>
-    <p class="mb-4">Un aspecto clave en este sistema es que los microorganismos responden constantemente a la presión selectiva del entorno. En el caso de los microorganismos asociados al ser humano, estas presiones selectivas determinan qué especies pueden mantenerse en equilibrio y cuáles pueden proliferar de manera descontrolada, dando lugar a procesos de disbiosis. Por esta razón, factores como la salud general, el estado del sistema inmune y los hábitos de higiene influyen directamente en el mantenimiento de un ecosistema microbiano sano y equilibrado.</p>
-    <p class="mb-4"><strong>¿Y cómo están relacionados estos aspectos con el desarrollo de enfermedades cutáneas?</strong></p>
-    <p class="mb-4">Problemas como la caspa, la dermatitis seborreica o la irritación del cuero cabelludo suelen surgir cuando se rompe el equilibrio del microbioma capilar.</p>
-    <ul class="mb-4 list-disc list-inside">
-      <li><strong>Caspa:</strong> se manifiesta con descamación fina y picazón. Está asociada con un exceso de <em>Malassezia</em>, que metaboliza los lípidos del sebo y produce compuestos que irritan la piel.</li>
-      <li><strong>Dermatitis seborreica:</strong> es una inflamación más intensa, que puede presentar enrojecimiento, escamas más gruesas y lesiones aceitosas. La interacción entre hongos y bacterias puede agravar esta condición.</li>
-      <li><strong>Irritación o dermatitis de contacto:</strong> puede ser causada por productos agresivos, cambios bruscos de higiene, estrés o alteraciones en la barrera cutánea, lo que permite que microorganismos normalmente inofensivos se vuelvan problemáticos.</li>
-    </ul>
-    <p class="mb-4">En las últimas décadas se ha notado un aumento de enfermedades capilares, lo que ha despertado interés en múltiples disciplinas como medicina, dermatología, psicología y ciencias ambientales. Esto es particularmente relevante en el siglo XXI, donde el estrés en la población es elevado debido a factores como altos estándares de vida, problemas sociales, violencia y sobrecarga laboral o académica.</p>
-    <p class="mb-4">Estos factores han motivado numerosos estudios para entender cómo influyen el estrés, las condiciones ambientales y la predisposición genética en el desarrollo de enfermedades del cuero cabelludo. Se ha evidenciado que el estrés puede alterar la respuesta inmune y la composición del microbioma, favoreciendo procesos inflamatorios y desequilibrios microbianos que se reflejan en síntomas visibles como descamación, picazón y enrojecimiento.</p>
-    <p class="mb-4">Con base en esto, he llegado a un análisis:</p>
-    <p class="mb-4">El desbalance del microbioma capilar no ocurre de manera aislada; está influenciado por nuestra salud general, nuestros hábitos de cuidado capilar y factores ambientales y psicológicos. Mantener el equilibrio microbiano es esencial para prevenir enfermedades y conservar un cuero cabelludo saludable.</p>
-    <p class="mb-4">Ahora el gran interrogante es:</p>
-    <p class="mb-4"><strong>¿Cómo podemos recuperar el balance del microbioma y evitar estas enfermedades?</strong></p>
-    <p class="mb-4">La respuesta está en el cuidado consciente del cabello y el cuero cabelludo: utilizar productos que respeten la microbiota, mantener una higiene adecuada sin excederse, favorecer hábitos de vida saludables, controlar el estrés y prestar atención a la alimentación y al bienestar general.</p>
-    <p class="mb-4">Con ello, llego a la conclusión de que nuestro cabello alberga un ecosistema microbiano amplio y complejo que, al igual que nuestra salud física, debemos cuidar. Un desbalance puede traer diversas consecuencias, desde irritación hasta enfermedades crónicas del cuero cabelludo.</p>
-    <p class="mb-4">Mi invitación con este artículo es a mirar nuestro cabello y cuero cabelludo con la misma atención y respeto que damos a nuestra salud general. Protejamos este ecosistema vivo que nos acompaña cada día, aprendamos a mantenerlo en equilibrio y reconozcamos que un cabello sano refleja bienestar físico y cuidado personal.</p>
+  <p class="intro">Si el cuero cabelludo es piel viva, rica en lípidos, humedad y nutrientes... ¿podría ser también el hogar de un ecosistema microbiano complejo? La respuesta es sí.</p>
 
-    <h3 class="text-2xl font-semibold text-green-800 mb-4">Referencias para investigar</h3>
-    <ul class="list-disc list-inside">
-      <li><strong>Scalp microbiome: a guide to better understanding scalp diseases and treatments</strong> — Revisión que explora cómo el desequilibrio del microbioma está relacionado con varias afecciones del cuero cabelludo (caspa, dermatitis seborreica, psoriasis) y cómo influye en decisiones terapéuticas. PubMed</li>
-      <li><strong>Comparison of Healthy and Dandruff Scalp Microbiome Reveals the Role of Commensals in Scalp Health</strong> — Estudio comparativo que analiza diferencias entre microbiomas de cuero cabelludo sano y con caspa, identificando bacterias y hongos predominantes. Frontiers</li>
-    </ul>
-  </main>
+  <!-- 1. Qué es el cabello -->
+  <h2>¿Qué es realmente el cabello?</h2>
+  <p>Desde una perspectiva estética, el cabello aporta armonía a nuestro rostro. Desde un contexto social, en comunidades afrodescendientes ha sido símbolo de identidad y resistencia. Pero desde la ciencia, el cabello es una <strong>estructura filamentosa compuesta principalmente de queratina</strong>, que crece a partir de la piel del cuero cabelludo.</p>
 
-  <!-- Footer -->
-  <footer class="bg-green-100 py-6 mt-12">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <p class="text-gray-700">© 2025 Biología Ilustrativa. Todos los derechos reservados.</p>
+  <div class="highlight-box">
+    El cabello está formado por una <strong>raíz</strong> (dentro del folículo piloso) y un <strong>tallo</strong> (la porción visible). Además de su función estética, cumple roles biológicos: protección frente a la radiación solar, regulación térmica y protección sensorial.
+  </div>
+
+  <!-- 2. Microbiota capilar -->
+  <h2>La microbiota capilar</h2>
+  <p>Nuestro cuero cabelludo alberga una comunidad diversa de microorganismos que conforman el <strong>microbioma capilar</strong>. Su presencia y abundancia están estrechamente relacionadas con las condiciones fisicoquímicas de esta zona: producción de sebo, humedad y pH.</p>
+
+  <div class="microbes-grid">
+    <div class="microbe-card">
+      <span class="mic-icon">🍄</span>
+      <h4>Hongos</h4>
+      <p class="species">Malassezia sp.</p>
+      <p>Levaduras lipofílicas predominantes del cuero cabelludo. Utilizan los lípidos del sebo como fuente de carbono. En equilibrio conviven sin problema, pero su exceso puede generar inflamación.</p>
     </div>
-  </footer>
+    <div class="microbe-card">
+      <span class="mic-icon">🦠</span>
+      <h4>Bacterias</h4>
+      <p class="species">Cutibacterium sp. · Staphylococcus sp.</p>
+      <p><em>Cutibacterium</em> participa en el metabolismo lipídico cutáneo. <em>Staphylococcus</em> incluye especies comensales como <em>S. epidermidis</em> y otras potencialmente patógenas.</p>
+    </div>
+  </div>
 
-  <script>
-    // Script para el menú móvil
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menu = document.getElementById('menu');
+  <div class="highlight-box">
+    💡 Los microorganismos responden constantemente a la <strong>presión selectiva del entorno</strong>. Factores como la salud general, el sistema inmune y los hábitos de higiene influyen directamente en el equilibrio del microbioma capilar.
+  </div>
 
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>
+  <!-- 3. Enfermedades -->
+  <h2>Cuando se rompe el equilibrio</h2>
+  <p>Problemas como la caspa, la dermatitis seborreica o la irritación surgen cuando se rompe el equilibrio del microbioma capilar.</p>
+
+  <div class="disease-list">
+    <div class="disease-item">
+      <div class="disease-icon">❄️</div>
+      <div class="disease-body">
+        <h4>Caspa</h4>
+        <p>Descamación fina con picazón. Asociada con exceso de <strong><em>Malassezia</em></strong>, que metaboliza los lípidos del sebo y produce compuestos irritantes para la piel.</p>
+      </div>
+    </div>
+    <div class="disease-item">
+      <div class="disease-icon">🔴</div>
+      <div class="disease-body">
+        <h4>Dermatitis seborreica</h4>
+        <p>Inflamación más intensa con enrojecimiento, escamas gruesas y lesiones aceitosas. La interacción entre hongos y bacterias puede agravar esta condición.</p>
+      </div>
+    </div>
+    <div class="disease-item">
+      <div class="disease-icon">⚡</div>
+      <div class="disease-body">
+        <h4>Irritación o dermatitis de contacto</h4>
+        <p>Causada por productos agresivos, cambios bruscos de higiene, estrés o alteraciones en la barrera cutánea, que permiten que microorganismos inofensivos se vuelvan problemáticos.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Estrés -->
+  <h2>El papel del estrés y el entorno</h2>
+  <p>En las últimas décadas se ha notado un aumento de enfermedades capilares, despertando interés en medicina, dermatología, psicología y ciencias ambientales. El estrés del siglo XXI — altos estándares de vida, sobrecarga laboral, violencia — tiene un impacto directo.</p>
+
+  <div class="quote">El estrés puede alterar la respuesta inmune y la composición del microbioma, favoreciendo procesos inflamatorios que se reflejan en síntomas visibles como descamación, picazón y enrojecimiento.</div>
+
+  <!-- 5. Consejos -->
+  <h2>¿Cómo recuperar el equilibrio?</h2>
+  <p>La respuesta está en el <strong>cuidado consciente del cabello y el cuero cabelludo</strong>:</p>
+
+  <div class="tips-grid">
+    <div class="tip-card">
+      <span class="tip-icon">🧴</span>
+      <p>Usar productos que respeten la microbiota natural</p>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">🚿</span>
+      <p>Higiene adecuada sin excederse en frecuencia</p>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">🥗</span>
+      <p>Alimentación equilibrada y bienestar general</p>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">🧘</span>
+      <p>Control del estrés y hábitos de vida saludables</p>
+    </div>
+  </div>
+
+  <!-- Referencias -->
+  <div class="refs-wrap">
+    <h3>📚 Referencias para investigar</h3>
+    <div class="ref-item">
+      <span>📄</span>
+      <p><strong>Scalp microbiome: a guide to better understanding scalp diseases and treatments</strong> — Revisión que explora cómo el desequilibrio del microbioma está relacionado con caspa, dermatitis seborreica y psoriasis. PubMed.</p>
+    </div>
+    <div class="ref-item">
+      <span>📄</span>
+      <p><strong>Comparison of Healthy and Dandruff Scalp Microbiome Reveals the Role of Commensals in Scalp Health</strong> — Estudio comparativo entre microbiomas de cuero cabelludo sano y con caspa. Frontiers.</p>
+    </div>
+  </div>
+
+  <!-- Cierre -->
+  <div class="article-closing">
+    <p>Nuestro cabello alberga un <strong>ecosistema microbiano amplio y complejo</strong> que, al igual que nuestra salud física, debemos cuidar. Un desbalance puede traer consecuencias desde irritación hasta enfermedades crónicas del cuero cabelludo.</p>
+    <p>Mi invitación es a mirar nuestro cabello y cuero cabelludo con la misma atención que damos a nuestra salud general. <strong>Protejamos este ecosistema vivo que nos acompaña cada día.</strong> 💚</p>
+  </div>
+
+  <div class="article-tags">
+    <span class="article-tag-item">Microbioma capilar</span>
+    <span class="article-tag-item">Malassezia</span>
+    <span class="article-tag-item">Salud cutánea</span>
+    <span class="article-tag-item">Microbiología</span>
+    <span class="article-tag-item">Dermatología</span>
+    <span class="article-tag-item">Divulgación</span>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 · <strong style="color:rgba(255,255,255,0.7)">Biología Ilustrativa</strong> · <a href="mailto:mayerlin.lemos.ilustra@gmail.com">Mayerlin Lemos</a></p>
+  <p>Sígueme en <a href="https://www.instagram.com/biologia_ilustrativa/">Instagram</a></p>
+</footer>
+
+<a href="apoyo.html" class="fab">
+  <span>💚</span>
+  <span>Apoya el blog</span>
+</a>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    menuBtn.textContent = mobileMenu.classList.contains('open') ? '✕' : '☰';
+  });
+</script>
+
 </body>
 </html>
