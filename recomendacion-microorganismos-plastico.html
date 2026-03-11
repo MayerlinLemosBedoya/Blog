@@ -94,7 +94,15 @@
     .article-list li::before { content: '→'; position: absolute; left: 0; color: var(--verde-claro); font-weight: 600; }
 
     /* Imagen */
-    .article-img { width: 100%; border-radius: 14px; box-shadow: var(--sombra); margin: 2rem 0; display: block; }
+    .article-img {
+      /* container widened so the image spans almost full width */
+      width: 100%;
+      max-width: 100%;
+      border-radius: 14px;
+      box-shadow: var(--sombra);
+      margin: 3rem auto; /* vertical spacing and center horizontally */
+      display: block;
+    }
     .img-caption { text-align: center; font-size: 0.82rem; color: var(--texto-suave); margin-top: -1.4rem; margin-bottom: 2rem; font-style: italic; }
 
     /* Reflexión y cierre */
@@ -254,7 +262,7 @@
 
   </div>
 
-  <img src="Plasticos.png" alt="Diagrama de biodegradación de plástico por microorganismos" class="article-img">
+  <img src="Degradación de plastico.png" alt="Diagrama de biodegradación de plástico por microorganismos" class="article-img">
   <p class="img-caption">Diagrama del proceso de biodegradación microbiana del plástico</p>
 
   <!-- 4. Bioprospección -->
