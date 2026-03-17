@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Las amebas: mucho más que un parásito | Biología Ilustrativa</title>
+  <link rel="icon" type="image/x-icon" href="Favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --verde-oscuro: #1a3d2b;
+      --verde-medio: #2d6a4f;
+      --verde-claro: #74c69d;
+      --verde-palido: #d8f3dc;
+      --verde-mint: #f0faf3;
+      --acento: #40916c;
+      --texto: #1b2d23;
+      --texto-suave: #4a6358;
+      --blanco: #ffffff;
+      --sombra: 0 4px 24px rgba(26,61,43,0.10);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--blanco); color: var(--texto); line-height: 1.8; }
+
+    /* HEADER */
+    header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--verde-palido); padding: 0.75rem 2rem; }
+    .header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    header img { height: 52px; width: auto; object-fit: contain; }
+    nav { display: flex; align-items: center; gap: 2rem; }
+    nav a { font-weight: 500; font-size: 0.9rem; color: var(--verde-oscuro); text-decoration: none; letter-spacing: 0.03em; position: relative; padding-bottom: 2px; transition: color 0.2s; }
+    nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--verde-claro); transition: width 0.3s ease; }
+    nav a:hover { color: var(--acento); }
+    nav a:hover::after { width: 100%; }
+    .menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--verde-oscuro); }
+    .mobile-menu { display: none; flex-direction: column; background: var(--verde-mint); padding: 1rem 2rem 1.5rem; gap: 1rem; border-top: 1px solid var(--verde-palido); }
+    .mobile-menu a { font-weight: 500; color: var(--verde-oscuro); text-decoration: none; font-size: 1rem; padding: 0.4rem 0; border-bottom: 1px solid var(--verde-palido); }
+    .mobile-menu.open { display: flex; }
+
+    /* HERO */
+    .article-hero { background-color: var(--verde-oscuro); padding: 5rem 2rem 4rem; position: relative; overflow: hidden; text-align: center; }
+    .article-hero::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Ccircle cx='80' cy='80' r='38' fill='none' stroke='%2374c69d' stroke-width='1.2' opacity='0.25'/%3E%3Ccircle cx='80' cy='80' r='26' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.18'/%3E%3Ccircle cx='66' cy='72' r='5' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.20'/%3E%3Ccircle cx='82' cy='65' r='5' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.20'/%3E%3Crect x='160' y='30' width='18' height='120' rx='9' fill='none' stroke='%2374c69d' stroke-width='1.2' opacity='0.20'/%3E%3Cpath d='M160 50 Q178 60 160 70 Q178 80 160 90 Q178 100 160 110 Q178 120 160 130' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.22'/%3E%3Cellipse cx='400' cy='70' rx='14' ry='40' fill='none' stroke='%2374c69d' stroke-width='1.2' opacity='0.20'/%3E%3Ccircle cx='510' cy='90' r='32' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.18'/%3E%3C/svg%3E"); background-size: 600px 600px; background-repeat: repeat; z-index: 0; }
+    .article-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(26,61,43,0.90) 0%, rgba(45,106,79,0.82) 60%, rgba(64,145,108,0.86) 100%); z-index: 0; }
+    .article-hero-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+    .hero-tag { display: inline-block; background: rgba(116,198,157,0.2); border: 1px solid rgba(116,198,157,0.4); color: var(--verde-claro); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 1.2rem; }
+    .article-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: var(--blanco); line-height: 1.2; margin-bottom: 1rem; }
+    .article-hero h1 em { font-style: italic; color: var(--verde-claro); }
+    .article-meta { color: rgba(255,255,255,0.60); font-size: 0.85rem; }
+
+    /* CONTENIDO */
+    .article-content { max-width: 740px; margin: 0 auto; padding: 4rem 1.5rem 5rem; }
+    .intro { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic; color: var(--texto-suave); border-left: 3px solid var(--verde-claro); padding-left: 1.2rem; margin-bottom: 2.5rem; line-height: 1.7; }
+    .article-content p { font-size: 1rem; color: var(--texto); margin-bottom: 1.4rem; line-height: 1.85; }
+    .article-content h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--verde-oscuro); margin: 3rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--verde-palido); }
+    .article-content h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--verde-medio); margin: 2rem 0 0.8rem; }
+    .article-content strong { color: var(--verde-medio); }
+    .article-content em { font-style: italic; }
+
+    /* Cards de estadios */
+    .stages-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 1.5rem 0; }
+    .stage-card { background: var(--blanco); border: 1px solid var(--verde-palido); border-radius: 14px; padding: 1.5rem; box-shadow: var(--sombra); transition: transform 0.2s, box-shadow 0.2s; }
+    .stage-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(26,61,43,0.14); }
+    .stage-card .stage-icon { font-size: 2rem; margin-bottom: 0.6rem; display: block; width: 60px; height: 60px; object-fit: contain; margin-left: auto; margin-right: auto; }
+    .stage-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--verde-oscuro); margin-bottom: 0.6rem; }
+    .stage-card p { font-size: 0.87rem; color: var(--texto-suave); line-height: 1.6; margin: 0; }
+    .stage-card .tag-tipo { font-size: 0.78rem; color: var(--acento); font-style: italic; margin-top: 0.6rem; font-weight: 500; }
+
+    /* Condiciones chips */
+    .conditions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.8rem; margin: 1.2rem 0; }
+    .condition-chip { background: var(--blanco); border: 1px solid var(--verde-palido); border-radius: 10px; padding: 0.8rem; text-align: center; box-shadow: var(--sombra); }
+    .condition-chip .cond-icon { font-size: 1.4rem; }
+    .condition-chip .cond-name { font-size: 0.78rem; color: var(--texto-suave); margin-top: 0.3rem; }
+
+    /* Pasos del ciclo de infección */
+    .steps-wrap { margin: 1.5rem 0; }
+    .step { display: grid; grid-template-columns: 52px 1fr; gap: 1.2rem; margin-bottom: 1.2rem; align-items: start; }
+    .step-num { width: 52px; height: 52px; background: var(--verde-oscuro); color: var(--verde-claro); font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .step-body { background: var(--verde-mint); border: 1px solid var(--verde-palido); border-radius: 12px; padding: 1.2rem 1.4rem; }
+    .step-body h4 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--verde-oscuro); margin-bottom: 0.5rem; }
+    .step-body p { font-size: 0.92rem; color: var(--texto-suave); margin: 0; line-height: 1.7; }
+    .step-body .sintomas { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.7rem; }
+    .sintoma-tag { background: var(--verde-oscuro); color: var(--verde-claro); font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.7rem; border-radius: 100px; }
+
+    /* Highlight y quote */
+    .highlight-box { background: var(--verde-mint); border: 1px solid var(--verde-palido); border-left: 4px solid var(--verde-claro); border-radius: 12px; padding: 1.5rem 1.8rem; margin: 1.5rem 0; font-size: 0.97rem; color: var(--texto-suave); line-height: 1.8; }
+    .highlight-box strong { color: var(--verde-oscuro); }
+    .quote { background: var(--verde-mint); border-left: 4px solid var(--verde-claro); border-radius: 0 12px 12px 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0; font-family: 'Playfair Display', serif; font-size: 1.05rem; font-style: italic; color: var(--verde-oscuro); }
+
+    /* Lista */
+    .article-list { list-style: none; margin: 1rem 0 1.5rem; padding: 0; }
+    .article-list li { padding: 0.5rem 0 0.5rem 1.6rem; position: relative; font-size: 0.97rem; color: var(--texto); border-bottom: 1px solid var(--verde-palido); }
+    .article-list li:last-child { border-bottom: none; }
+    .article-list li::before { content: '→'; position: absolute; left: 0; color: var(--verde-claro); font-weight: 600; }
+
+    /* Imagen */
+    .article-img { width: 100%; max-width: 100%; border-radius: 14px; box-shadow: var(--sombra); margin: 3rem auto; display: block; }
+    .img-caption { text-align: center; font-size: 0.82rem; color: var(--texto-suave); margin-top: -1.4rem; margin-bottom: 2rem; font-style: italic; }
+
+    /* Reflexión y cierre */
+    .reflection-box { background: var(--verde-oscuro); border-radius: 16px; padding: 2.5rem; margin: 3rem 0 2rem; }
+    .reflection-box h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--verde-claro); margin-bottom: 1rem; }
+    .reflection-box p { color: rgba(255,255,255,0.80); font-size: 1rem; line-height: 1.8; margin-bottom: 1rem; }
+    .reflection-box p:last-child { margin-bottom: 0; }
+
+    .article-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; padding-top: 2rem; border-top: 1px solid var(--verde-palido); }
+    .article-tag-item { background: var(--verde-mint); border: 1px solid var(--verde-palido); color: var(--acento); font-size: 0.78rem; font-weight: 500; padding: 0.3rem 0.8rem; border-radius: 100px; }
+
+    /* Footer */
+    footer { background: var(--verde-oscuro); border-top: 1px solid rgba(116,198,157,0.2); padding: 2.5rem 2rem; text-align: center; }
+    footer p { color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-bottom: 0.4rem; }
+    footer a { color: var(--verde-claro); text-decoration: none; }
+
+    .fab { position: fixed; bottom: 1.8rem; right: 1.8rem; background: var(--acento); color: var(--blanco); font-weight: 600; font-size: 0.88rem; padding: 0.85rem 1.4rem; border-radius: 100px; text-decoration: none; box-shadow: 0 6px 20px rgba(45,106,79,0.4); display: flex; align-items: center; gap: 0.5rem; z-index: 999; transition: transform 0.2s, box-shadow 0.2s; }
+    .fab:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(45,106,79,0.5); }
+
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .menu-btn { display: block; }
+      .fab span:last-child { display: none; }
+      .article-content { padding: 3rem 1.2rem 4rem; }
+      .stages-grid { grid-template-columns: 1fr; }
+      .step { grid-template-columns: 40px 1fr; }
+      .step-num { width: 40px; height: 40px; font-size: 1rem; }
+    }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .article-hero-inner > * { animation: fadeUp 0.7s ease both; }
+    .article-hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
+    .article-hero-inner > *:nth-child(2) { animation-delay: 0.25s; }
+    .article-hero-inner > *:nth-child(3) { animation-delay: 0.4s; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html"><img src="Logofinal.png" alt="Logo de Biología Ilustrativa"></a>
+    <button class="menu-btn" id="menu-btn">☰</button>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="index.html#sobre-mi">Sobre mí</a>
+      <a href="https://portafoliodemayerlinlemosbedoya.netlify.app/aprendizaje/tarjetapresentaci%C3%B3n/" target="_blank">Portafolio</a>
+      <a href="articulo1.html">Blog</a>
+      <a href="mailto:mayerlin.lemos.ilustra@gmail.com">Contacto</a>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Inicio</a>
+    <a href="index.html#sobre-mi">Sobre mí</a>
+    <a href="https://portafoliodemayerlinlemosbedoya.netlify.app/aprendizaje/tarjetapresentaci%C3%B3n/" target="_blank">Portafolio</a>
+    <a href="articulo1.html">Blog</a>
+    <a href="mailto:mayerlin.lemos.ilustra@gmail.com">Contacto</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <span class="hero-tag">Microbiología ambiental · Parasitología</span>
+    <h1>Las amebas: <em>mucho más</em> que un parásito</h1>
+    <p class="article-meta">Por Mayerlin Lemos · 17 de marzo de 2026</p>
+  </div>
+</div>
+
+<!-- CONTENIDO -->
+<article class="article-content">
+
+  <p class="intro">¿Son realmente los monstruos que imaginamos? Un recorrido por la biología, el ciclo de vida y el rol ecológico de uno de los organismos más fascinantes del mundo microscópico.</p>
+
+  <!-- 1. Qué es una ameba -->
+  <h2>¿Qué es una ameba?</h2>
+  <p>Cuando escuchamos la palabra "ameba", casi de forma automática pensamos en enfermedad. Y en cierta medida hay razón para ello: algunas especies son responsables de enfermedades serias. <em>Entamoeba histolytica</em> causa miles de casos de amebiasis intestinal al año, mientras que otras especies como <em>Naegleria fowleri</em> y <em>Acanthamoeba</em> spp. pueden llegar a causar cuadros neurológicos graves como encefalitis. Sin embargo, esta asociación inmediata nos hace olvidar algo importante: las amebas son organismos mucho más complejos, diversos y ecológicamente relevantes de lo que solemos imaginar.</p>
+  <p>Para entender mejor quiénes son, vale la pena hacer una pausa y pensar en ecología. Todo organismo, sin importar cuán pequeño sea, cumple una función dentro de su ecosistema. Las amebas no son la excepción.</p>
+
+  <img src="Recurso 19amebiasis f.png" alt="Trofozoíto de ameba con pseudópodos" class="article-img">
+  <p class="img-caption">Morfología del trofozoíto: la forma activa de la ameba, caracterizada por sus pseudópodos</p>
+
+  <!-- 2. Ciclo de vida -->
+  <h2>Un ciclo de vida de dos caras</h2>
+  <p>Las amebas de vida libre presentan dos estadios principales con características muy distintas entre sí:</p>
+
+  <div class="stages-grid">
+    <div class="stage-card">
+      <img src="Recurso 21amebiasis icon.png" alt="Icono de ameba activa" class="stage-icon">
+      <h4>Trofozoíto</h4>
+      <p>Es la forma activa y móvil. Se reconoce fácilmente por sus pseudópodos, extensiones del citoplasma que le permiten desplazarse, explorar el ambiente y capturar alimento.</p>
+      <div class="tag-tipo">Estadio activo</div>
+    </div>
+    <div class="stage-card">
+      <img src="Recurso 20amebiasis fl - copia.png" alt="Icono de ameba activa" class="stage-icon">
+      <h4>Quiste</h4>
+      <p>Es el estadio de resistencia. La ameba se "encierra" en una pared protectora cuando el ambiente se vuelve hostil. Puede sobrevivir condiciones que serían letales para el trofozoíto.</p>
+      <div class="tag-tipo">Estadio de resistencia</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>Dato curioso:</strong> al observar muestras al microscopio, es muy común confundir un quiste de ameba con partículas de sedimento, residuos del suelo u otras estructuras celulares. Conocer bien ambos estadios es clave para una identificación correcta.
+  </div>
+
+  <p>Las condiciones que desencadenan la formación del quiste son variadas. Cualquier situación que haga el ambiente "insostenible" para el trofozoíto puede iniciar este proceso:</p>
+
+  <div class="conditions-grid">
+    <div class="condition-chip"><div class="cond-icon">⚗️</div><div class="cond-name">pH desajustado</div></div>
+    <div class="condition-chip"><div class="cond-icon">🍽️</div><div class="cond-name">Escasez de nutrientes</div></div>
+    <div class="condition-chip"><div class="cond-icon">🌡️</div><div class="cond-name">Temperaturas extremas</div></div>
+    <div class="condition-chip"><div class="cond-icon">💧</div><div class="cond-name">Desecación</div></div>
+  </div>
+
+  <!-- 3. La formación del quiste -->
+  <h2>El proceso intermedio: algo que pocas veces vemos</h2>
+  <p>Hace unos días estaba observando al microscopio una muestra de agua de tierra de maceta, almacenada durante cinco días. Encontré amebas en ambos estadios, trofozoítos activos y quistes. Pero lo más interesante fue ver una ameba en transición: ya tenía la pared del quiste en formación y, sin embargo, su citoplasma seguía generando prolongaciones internas que creaban corrientes dentro de la célula.</p>
+
+  <div class="quote">Ese proceso de transición se llama <strong>enquistación</strong> (<em>encystment</em>). Las corrientes internas que observé corresponden a la retracción del citoplasma, uno de los primeros pasos del proceso. Me recuerda, de forma analógica, a la formación de esporas en bacterias: ambos son mecanismos de resistencia ante condiciones adversas, aunque son procesos distintos en organismos muy diferentes. Es una evidencia de la complejidad que esconden estos organismos.</div>
+
+  <p>Este estadio intermedio demuestra que la enquistación no es un evento instantáneo, sino un proceso gradual con etapas bien definidas. Un recordatorio de que, en biología, pocas cosas son blanco o negro.</p>
+
+  <img src="Recurso 20amebiasis fl.png" alt="Quiste maduro e inmaduro de ameba" class="article-img">
+  <p class="img-caption">Tipos de quiste: maduro (con múltiples núcleos) e inmaduro (con uno o dos núcleos). La madurez del quiste es clave para su capacidad infectiva</p>
+
+  <!-- 4. Por qué en aguas quietas -->
+  <h2>¿Por qué en aguas quietas?</h2>
+  <p>Hay un dicho popular: <em>"en aguas mansas corre el diablo"</em>, y en este contexto tiene todo el sentido. Lo que parece tranquilo e inofensivo puede esconder más de lo que imaginamos. Los cuerpos de agua con poco flujo —represas, charcos, aguas estancadas— son ambientes ideales para las amebas por varias razones:</p>
+
+  <ul class="article-list">
+    <li>Mayor concentración de <strong>bacterias</strong>, que son su principal fuente de alimento</li>
+    <li>Acumulación de <strong>sedimentos</strong> ricos en materia orgánica</li>
+    <li><strong>Temperaturas más altas</strong> que favorecen su metabolismo</li>
+    <li>Menor competencia por el movimiento constante del agua</li>
+  </ul>
+
+  <p>Todo esto crea un ambiente óptimo para su proliferación. Y es también la razón por la que debemos tener precauciones especiales en este tipo de entornos.</p>
+
+  <!-- 5. Ciclo de infección -->
+  <h2>El ciclo de infección: cómo nos afecta</h2>
+  <p>En el caso de especies patógenas como <em>Entamoeba histolytica</em>, el ciclo comienza con el consumo o inhalación de agua contaminada que contiene quistes o trofozoítos. Lo que ocurre después depende de la especie y del estado del quiste.</p>
+
+  <img src="Recurso 18amebiasis.png" alt="Ciclo de infección de la amebiasis" class="article-img">
+  <p class="img-caption">Ciclo de infección general de la amebiasis: desde la exposición hasta los órganos afectados</p>
+
+  <div class="steps-wrap">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Exposición</h4>
+        <p>El organismo entra al cuerpo por consumo o inhalación de agua contaminada con quistes o trofozoítos. En el caso de <em>Naegleria fowleri</em>, la entrada se produce a través de la nariz al nadar o sumergirse en aguas cálidas.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Colonización</h4>
+        <p>La ameba llega al intestino grueso o, en casos de otras especies, al sistema nervioso central. En el caso específico de <em>Entamoeba histolytica</em>, solo los quistes <strong>maduros</strong> (con cuatro núcleos) son infectivos; los inmaduros no lo son. Este criterio no aplica igual para todas las especies de amebas.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Síntomas</h4>
+        <p>Los síntomas varían según la especie y el órgano afectado.</p>
+        <div class="sintomas">
+          <span class="sintoma-tag">Diarrea</span>
+          <span class="sintoma-tag">Dolor abdominal</span>
+          <span class="sintoma-tag">Fiebre</span>
+          <span class="sintoma-tag">Encefalitis (casos graves)</span>
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>Transmisión</h4>
+        <p>Las personas infectadas eliminan quistes en sus heces, que pueden contaminar fuentes de agua o alimentos, cerrando el ciclo de transmisión en comunidades con saneamiento deficiente.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reflexión -->
+  <div class="reflection-box">
+    <h3> Una reflexión final</h3>
+    <p>El objetivo de este artículo no es generar miedo hacia las amebas. Al contrario: es una invitación a conocerlas mejor. El mundo microscópico está lleno de organismos que tienen su lugar, su función y su historia. Muchas veces somos tan egocéntricos que asumimos que todos los espacios son nuestros. Irrumpimos en ecosistemas que llevan existiendo mucho antes que nosotros.</p>
+    <p>Conocer a las amebas nos permite entender que compartimos el planeta con organismos increíbles, y que la mejor forma de convivir con ellos es desde el conocimiento y la precaución, no desde el miedo.</p>
+  </div>
+
+  <!-- Recomendaciones -->
+  <h2>Recomendaciones prácticas</h2>
+  <h3>Para prevenir la amebiasis intestinal (<em>E. histolytica</em>)</h3>
+  <ul class="article-list">
+    <li>Consumir únicamente <strong>agua potable</strong> y verificar su procedencia</li>
+    <li>Lavar bien <strong>frutas y verduras</strong> con agua segura antes de consumirlas</li>
+    <li>Lavarse las manos con frecuencia, especialmente antes de comer</li>
+  </ul>
+  <h3>Para prevenir la encefalitis amebiana (<em>Naegleria fowleri</em>, <em>Acanthamoeba</em>)</h3>
+  <ul class="article-list">
+    <li>Evitar <strong>inhalar agua</strong> al nadar o sumergirse en lagos, ríos y aguas naturales cálidas</li>
+    <li>No nadar en zonas profundas donde se <strong>remueva el sedimento</strong> del fondo</li>
+    <li>Tener precaución especial en <strong>cuerpos de agua estancada</strong> o con poco flujo y alta temperatura</li>
+  </ul>
+
+  <div class="article-tags">
+    <span class="article-tag-item">Microbiología ambiental</span>
+    <span class="article-tag-item">Parasitología</span>
+    <span class="article-tag-item">Amebiasis</span>
+    <span class="article-tag-item">Entamoeba histolytica</span>
+    <span class="article-tag-item">Ciclo de vida</span>
+    <span class="article-tag-item">Divulgación</span>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 · <strong style="color:rgba(255,255,255,0.7)">Biología Ilustrativa</strong> · <a href="mailto:mayerlin.lemos.ilustra@gmail.com">Mayerlin Lemos</a></p>
+  <p>Sígueme en <a href="https://www.instagram.com/biologia_ilustrativa/">Instagram</a></p>
+</footer>
+
+<a href="apoyo.html" class="fab">
+  <span>💚</span>
+  <span>Apoya el blog</span>
+</a>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    menuBtn.textContent = mobileMenu.classList.contains('open') ? '✕' : '☰';
+  });
+</script>
+
+</body>
+</html>
