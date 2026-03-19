@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Los hongos filamentosos: habitantes de nuestros alimentos | Biología Ilustrativa</title>
+  <title>Los hongos filamentosos: del alimento al organismo | Biología Ilustrativa</title>
   <link rel="icon" type="image/png" href="Favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -25,7 +25,7 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--blanco); color: var(--texto); line-height: 1.8; }
 
-    /* HEADER */
+    /* ── HEADER ── */
     header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--verde-palido); padding: 0.75rem 2rem; }
     .header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
     header img { height: 52px; width: auto; object-fit: contain; }
@@ -39,7 +39,7 @@
     .mobile-menu a { font-weight: 500; color: var(--verde-oscuro); text-decoration: none; font-size: 1rem; padding: 0.4rem 0; border-bottom: 1px solid var(--verde-palido); }
     .mobile-menu.open { display: flex; }
 
-    /* HERO */
+    /* ── HERO ── */
     .article-hero { background-color: var(--verde-oscuro); padding: 5rem 2rem 4rem; position: relative; overflow: hidden; text-align: center; }
     .article-hero::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Ccircle cx='80' cy='80' r='38' fill='none' stroke='%2374c69d' stroke-width='1.2' opacity='0.25'/%3E%3Ccircle cx='80' cy='80' r='26' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.18'/%3E%3Ccircle cx='66' cy='72' r='5' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.20'/%3E%3Crect x='160' y='30' width='18' height='120' rx='9' fill='none' stroke='%2374c69d' stroke-width='1.2' opacity='0.20'/%3E%3Cpath d='M160 50 Q178 60 160 70 Q178 80 160 90 Q178 100 160 110 Q178 120 160 130' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.22'/%3E%3Cellipse cx='400' cy='70' rx='14' ry='40' fill='none' stroke='%2374c69d' stroke-width='1.2' opacity='0.20'/%3E%3Ccircle cx='510' cy='90' r='32' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.18'/%3E%3C/svg%3E"); background-size: 600px 600px; background-repeat: repeat; z-index: 0; }
     .article-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(26,61,43,0.90) 0%, rgba(45,106,79,0.82) 60%, rgba(64,145,108,0.86) 100%); z-index: 0; }
@@ -49,57 +49,106 @@
     .article-hero h1 em { font-style: italic; color: var(--verde-claro); }
     .article-meta { color: rgba(255,255,255,0.60); font-size: 0.85rem; }
 
-    /* INTRO */
+    /* ── INTRO ── */
     .intro-wrap { max-width: 740px; margin: 0 auto; padding: 3rem 1.5rem 1rem; }
-    .intro-wrap p { font-size: 1rem; color: var(--texto-suave); margin-bottom: 1rem; line-height: 1.85; }
-    .intro-wrap .lead { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic; color: var(--texto-suave); border-left: 3px solid var(--verde-claro); padding-left: 1.2rem; margin-bottom: 1.5rem; line-height: 1.7; }
+    .intro-wrap p { font-size: 1rem; color: var(--texto-suave); margin-bottom: 1rem; line-height: 1.85; text-align: justify; }
+    .intro-wrap .lead { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic; color: var(--texto-suave); border-left: 3px solid var(--verde-claro); padding-left: 1.2rem; margin-bottom: 1.5rem; line-height: 1.7; text-align: justify; }
 
-    /* CONTENIDO */
+    /* ── CONTENIDO ── */
     .article-content { max-width: 740px; margin: 0 auto; padding: 0 1.5rem 5rem; }
     .article-content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--verde-oscuro); margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--verde-palido); }
-    .article-content p { font-size: 1rem; color: var(--texto); margin-bottom: 1.4rem; line-height: 1.85; }
+    .article-content p { font-size: 1rem; color: var(--texto); margin-bottom: 1.4rem; line-height: 1.85; text-align: justify; }
     .article-content strong { color: var(--verde-medio); }
     .article-content em { font-style: italic; }
     .article-content ul { list-style: none; padding: 0 0 1.5rem 0; }
     .article-content ul li { font-size: 0.95rem; color: var(--texto-suave); padding: 0.5rem 0 0.5rem 1.8rem; position: relative; }
     .article-content ul li::before { content: '→'; position: absolute; left: 0; color: var(--verde-claro); font-weight: 600; }
 
-    /* Figuras */
+    /* ── FIGURAS ── */
     .figure-wrap { margin: 2.5rem 0; text-align: center; }
     .figure-wrap img { max-width: 100%; height: auto; border-radius: 12px; box-shadow: var(--sombra); margin-bottom: 1rem; }
-    .figure-caption { font-size: 0.9rem; color: var(--texto-suave); line-height: 1.6; }
+    .figure-caption { font-size: 0.9rem; color: var(--texto-suave); line-height: 1.6; text-align: justify; }
     .figure-caption strong { color: var(--verde-oscuro); }
 
-    /* Highlight box */
-    .highlight-box { background: var(--verde-mint); border-left: 4px solid var(--verde-claro); border-radius: 0 12px 12px 0; padding: 1.5rem; margin: 2rem 0; font-size: 0.97rem; color: var(--texto-suave); line-height: 1.8; }
+    /* ── HIGHLIGHT BOX (verde suave) ── */
+    .highlight-box { background: var(--verde-mint); border-left: 4px solid var(--verde-claro); border-radius: 0 12px 12px 0; padding: 1.5rem; margin: 2rem 0; font-size: 0.97rem; color: var(--texto-suave); line-height: 1.8; text-align: justify; }
     .highlight-box strong { color: var(--verde-oscuro); }
 
-    /* REFLEXIÓN FINAL */
+    /* ── ALERT BOX (ámbar, para advertencias) ── */
+    .alert-box { background: #fffbf0; border-left: 4px solid #d4a843; border-radius: 0 12px 12px 0; padding: 1.5rem; margin: 2rem 0; font-size: 0.97rem; color: #5a4010; line-height: 1.8; text-align: justify; }
+    .alert-box strong { color: #7a5210; }
+
+    /* ── DANGER BOX (rojo suave, alertas clínicas) ── */
+    .danger-box { background: #fff5f5; border-left: 4px solid #c0524a; border-radius: 0 12px 12px 0; padding: 1.5rem; margin: 2rem 0; font-size: 0.97rem; color: #4a1a18; line-height: 1.8; text-align: justify; }
+    .danger-box strong { color: #7a2424; }
+
+    /* ── TABLA ── */
+    .data-table-wrap { overflow-x: auto; margin: 2rem 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    thead th { background: var(--verde-oscuro); color: var(--verde-claro); font-weight: 500; letter-spacing: 0.04em; padding: 0.75rem 1rem; text-align: left; font-size: 0.82rem; text-transform: uppercase; }
+    tbody td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--verde-palido); color: var(--texto); vertical-align: top; line-height: 1.55; }
+    tbody tr:hover td { background: var(--verde-mint); }
+    tbody td em { font-style: italic; }
+
+    /* ── CARDS COMPARATIVAS ── */
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 2rem 0; }
+    .compare-card { border: 1px solid var(--verde-palido); border-radius: 12px; overflow: hidden; }
+    .compare-card-head { padding: 0.85rem 1.2rem; font-weight: 600; font-size: 0.95rem; }
+    .compare-card-head.orange { background: #fff8ee; color: #7a4e08; border-bottom: 1px solid #f0d9aa; }
+    .compare-card-head.red    { background: #fff5f5; color: #7a2424; border-bottom: 1px solid #f0c0c0; }
+    .compare-card ul { list-style: none; padding: 0.8rem 1.2rem 1rem; margin: 0; }
+    .compare-card ul li { font-size: 0.92rem; padding: 0.4rem 0 0.4rem 1.4rem; position: relative; color: var(--texto-suave); line-height: 1.5; border: none; }
+    .compare-card ul li::before { content: '›'; position: absolute; left: 0; color: var(--texto-suave); font-weight: 600; }
+
+    /* ── FASES ── */
+    .phases-strip { display: flex; border: 1px solid var(--verde-palido); border-radius: 12px; overflow: hidden; margin: 1.5rem 0; }
+    .phase-item { flex: 1; padding: 1rem 0.75rem; text-align: center; border-right: 1px solid var(--verde-palido); background: var(--verde-mint); }
+    .phase-item:last-child { border-right: none; }
+    .phase-num { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-style: italic; color: var(--acento); display: block; margin-bottom: 4px; }
+    .phase-name { font-size: 0.78rem; font-weight: 500; color: var(--texto-suave); letter-spacing: 0.04em; }
+
+    /* ── METABOLITE CHIPS ── */
+    .chips-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 1.8rem; }
+    .chip { border: 1px solid var(--verde-palido); border-radius: 8px; padding: 0.5rem 0.9rem; font-size: 0.85rem; background: #fff; }
+    .chip .chip-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--texto-suave); display: block; margin-bottom: 2px; }
+    .chip .chip-val { color: var(--texto); font-weight: 500; }
+
+    /* ── RISK GRID ── */
+    .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 1.8rem; }
+    .risk-item { background: var(--verde-mint); border: 1px solid var(--verde-palido); border-radius: 8px; padding: 0.65rem 1rem; font-size: 0.88rem; color: var(--texto-suave); }
+
+    /* ── REFLEXIÓN FINAL ── */
     .reflection-wrap { max-width: 740px; margin: 0 auto; padding: 0 1.5rem 5rem; }
     .reflection-box { background: var(--verde-oscuro); border-radius: 16px; padding: 2.5rem; text-align: center; }
-    .reflection-box h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--verde-claro); margin-bottom: 1.2rem; border: none; padding: 0; }
+    .reflection-box h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--verde-claro); margin-bottom: 1.2rem; }
     .reflection-box p { color: rgba(255,255,255,0.80); font-size: 1rem; line-height: 1.8; margin-bottom: 1rem; }
     .reflection-box p:last-child { margin: 0; }
     .reflection-box strong { color: var(--verde-claro); }
-
     .article-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(116,198,157,0.2); justify-content: center; }
     .article-tag-item { background: rgba(116,198,157,0.15); border: 1px solid rgba(116,198,157,0.3); color: var(--verde-claro); font-size: 0.78rem; font-weight: 500; padding: 0.3rem 0.8rem; border-radius: 100px; }
 
-    /* Footer */
+    /* ── FOOTER ── */
     footer { background: var(--verde-oscuro); border-top: 1px solid rgba(116,198,157,0.2); padding: 2.5rem 2rem; text-align: center; }
     footer p { color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-bottom: 0.4rem; }
     footer a { color: var(--verde-claro); text-decoration: none; }
 
+    /* ── FAB ── */
     .fab { position: fixed; bottom: 1.8rem; right: 1.8rem; background: var(--acento); color: var(--blanco); font-weight: 600; font-size: 0.88rem; padding: 0.85rem 1.4rem; border-radius: 100px; text-decoration: none; box-shadow: 0 6px 20px rgba(45,106,79,0.4); display: flex; align-items: center; gap: 0.5rem; z-index: 999; transition: transform 0.2s, box-shadow 0.2s; }
     .fab:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(45,106,79,0.5); }
 
+    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { display: none; }
       .menu-btn { display: block; }
       .fab span:last-child { display: none; }
       .intro-wrap, .article-content, .reflection-wrap { padding-left: 1.2rem; padding-right: 1.2rem; }
+      .compare-grid, .risk-grid { grid-template-columns: 1fr; }
+      .phases-strip { flex-wrap: wrap; }
+      .phase-item { border-right: none; border-bottom: 1px solid var(--verde-palido); }
+      .phase-item:last-child { border-bottom: none; }
     }
 
+    /* ── ANIMACIONES ── */
     @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .article-hero-inner > * { animation: fadeUp 0.7s ease both; }
     .article-hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
@@ -109,7 +158,7 @@
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- ════════════════════════════════ HEADER ════════════════════════════════ -->
 <header>
   <div class="header-inner">
     <a href="index.html"><img src="Logofinal.png" alt="Logo de Biología Ilustrativa"></a>
@@ -131,126 +180,221 @@
   </div>
 </header>
 
-<!-- HERO -->
+<!-- ════════════════════════════════ HERO ════════════════════════════════ -->
 <div class="article-hero">
   <div class="article-hero-inner">
-    <span class="hero-tag">Microbiología · Alimentos</span>
-    <h1>Los hongos <em>filamentosos</em>: habitantes de nuestros alimentos</h1>
-    <p class="article-meta">Por Mayerlin Lemos · 4 de febrero de 2026</p>
+    <span class="hero-tag">Microbiología · Alimentos · Salud pública</span>
+    <h1>Los hongos <em>filamentosos</em>:<br>del alimento al organismo</h1>
+    <p class="article-meta">Por Mayerlin Lemos · Actualización: 19 de Marzo de 2026</p>
   </div>
 </div>
 
-<!-- INTRO -->
+<!-- ════════════════════════════════ INTRO ════════════════════════════════ -->
 <div class="intro-wrap">
-  <p class="lead">En nuestra vida cotidiana es común observar que, al dejar por varios días alimentos como pan, arroz, arepas o vegetales, aparece lo que llamamos "moho". Aunque suele verse como algo superficial, este fenómeno está relacionado con organismos con gran impacto en distintos ámbitos de la sociedad.</p>
-  <p>Estos hongos influyen no solo en la conservación de los alimentos, sino también en la economía, el ambiente y la salud humana. A partir de esta experiencia cotidiana, exploraremos qué son, cómo crecen y por qué es importante comprenderlos.</p>
+  <p class="lead">Lo que comúnmente llamamos "moho" en el pan o en una arepa olvidada no es solo una mancha visible: es la expresión superficial de un organismo complejo que puede, en las condiciones adecuadas, colonizar tejidos humanos, producir toxinas resistentes al calor y evadir los fármacos disponibles.</p>
+  <p>En este artículo exploramos esa cadena del alimento al organismo revisando qué son los hongos filamentosos, cómo crecen, qué sustancias producen y, sobre todo, cómo dos de los géneros más comunes pueden causar enfermedades graves: la <strong>aspergilosis</strong> y la <strong>penicilosis</strong>.</p>
 </div>
 
-<!-- CONTENIDO -->
+<!-- ════════════════════════════════ CONTENIDO ════════════════════════════════ -->
 <article class="article-content">
 
+  <!-- 1. QUÉ SON -->
   <h2>¿Qué son los hongos filamentosos?</h2>
-  <p>Lo que comúnmente llamamos "moho" corresponde a un grupo de organismos conocidos como <strong>hongos filamentosos</strong>. Se caracterizan por estar formados por estructuras microscópicas llamadas <strong>hifas</strong>, que al unirse forman una red conocida como <strong>micelio</strong>.</p>
-  <p>El micelio se extiende dentro del alimento o del sustrato, funcionando como un sistema de absorción de nutrientes, similar a una red de raíces.</p>
-  
-  <p>Por esta razón, cuando se observa un alimento contaminado y se elimina solo la parte visible, el hongo no desaparece completamente:</p>
+  <p>Los hongos filamentosos son organismos eucariotas que crecen formando estructuras tubulares microscópicas denominadas <strong>hifas</strong>. Al ramificarse e interconectarse, estas hifas constituyen una red tridimensional llamada <strong>micelio</strong>, que funciona como el cuerpo vegetativo del hongo: penetra el sustrato, digiere nutrientes de forma extracelular y los absorbe a través de su pared.</p>
+  <p>Cuando observamos el moho en un alimento, vemos únicamente la parte reproductiva —las estructuras que liberan esporas al aire—. El micelio ya ha colonizado el interior mucho antes de que la mancha sea visible. Por eso retirar la parte visible no elimina el hongo:</p>
   <ul>
-    <li>Gran parte de su estructura permanece en el interior</li>
-    <li>Pueden quedar esporas (su forma de dispersión)</li>
-    <li>Y pueden estar presentes sustancias tóxicas</li>
+    <li>Gran parte del micelio permanece en el interior del alimento</li>
+    <li>Las esporas (conidios) ya pueden haberse dispersado al ambiente</li>
+    <li>Los metabolitos tóxicos producidos no desaparecen al retirar el hongo</li>
   </ul>
+  <p>Los géneros de mayor relevancia clínica y alimentaria son <strong><em>Aspergillus</em></strong> y <strong><em>Penicillium</em></strong>, ambos productores de conidios de pequeño diámetro que facilitan su inhalación y penetración en el tracto respiratorio.</p>
 
-  <div class="figure-wrap">
-    <img src="Aspergillus infografia final copia.png" alt="Ilustración de Aspergillus spp">
-    <div class="figure-caption"><strong>Figura 1.</strong> Ilustración de <em>Aspergillus</em> spp. mostrando su estructura filamentosa</div>
-  </div>
-
-  <div class="figure-wrap">
-    <img src="Penicillium.png" alt="Ilustración de Penicillium spp">
-    <div class="figure-caption"><strong>Figura 2.</strong> Ilustración de <em>Penicillium</em> spp. y su micelio</div>
-  </div>
-
+  <!-- 2. CRECIMIENTO -->
   <h2>¿Cómo crecen los hongos?</h2>
-  <p>Al igual que otros microorganismos, los hongos presentan distintas etapas de crecimiento que dependen de factores como <strong>temperatura, pH, cantidad de nutrientes</strong> y tipo de alimento o sustrato.</p>
-  <p>De forma general, este crecimiento se describe en cuatro fases:</p>
-  <ul>
-    <li>Fase de latencia</li>
-    <li>Crecimiento rápido (exponencial)</li>
-    <li>Fase estacionaria</li>
-    <li>Fase de muerte celular</li>
-  </ul>
+  <p>Al igual que otros microorganismos, los hongos filamentosos atraviesan fases predecibles de crecimiento que responden a condiciones ambientales: <strong>temperatura, actividad de agua (a<sub>w</sub>), pH</strong> y disponibilidad de nutrientes.</p>
 
-  <div class="figure-wrap">
-    <img src="Curva de crecimiento de MO.png" alt="Curva de crecimiento de hongos">
-    <div class="figure-caption"><strong>Figura 3.</strong> Curva de crecimiento microbiano con sus cuatro fases principales</div>
+  <div class="phases-strip">
+    <div class="phase-item"><span class="phase-num">I</span><span class="phase-name">Latencia</span></div>
+    <div class="phase-item"><span class="phase-num">II</span><span class="phase-name">Exponencial</span></div>
+    <div class="phase-item"><span class="phase-num">III</span><span class="phase-name">Estacionaria</span></div>
+    <div class="phase-item"><span class="phase-num">IV</span><span class="phase-name">Muerte</span></div>
   </div>
 
+  <p>La <strong>fase de latencia</strong> es crítica desde el punto de vista preventivo: el hongo germina y establece su micelio sin señales visibles. La producción de micotoxinas ocurre principalmente durante la fase estacionaria, cuando el hongo enfrenta estrés nutricional o competencia con otros microorganismos.</p>
+  <p><em>Aspergillus fumigatus</em> tolera temperaturas de hasta 55 °C, lo que le confiere una ventaja competitiva en ambientes cálidos y es un factor clave en su patogenicidad humana.</p>
+
+  <!-- 3. METABOLITOS -->
   <h2>Sustancias que producen los hongos</h2>
-  <p>Durante su crecimiento, los hongos producen diferentes compuestos llamados <strong>metabolitos</strong>. Algunos de ellos son útiles para la industria:</p>
+  <p>Durante su crecimiento, los hongos sintetizan dos grandes grupos de metabolitos: los <strong>primarios</strong>, esenciales para su propio desarrollo (ácidos orgánicos, alcoholes, enzimas), y los <strong>secundarios</strong>, producidos en condiciones de estrés, que incluyen algunas de las moléculas con mayor impacto en la salud humana.</p>
+
+  <div class="chips-row">
+    <div class="chip"><span class="chip-label">Industria alimentaria</span><span class="chip-val">Ácido cítrico (<em>A. niger</em>)</span></div>
+    <div class="chip"><span class="chip-label">Medicina</span><span class="chip-val">Antibióticos (<em>Penicillium</em>)</span></div>
+    <div class="chip"><span class="chip-label">Biotecnología</span><span class="chip-val">Enzimas industriales</span></div>
+    <div class="chip"><span class="chip-label">Riesgo alimentario</span><span class="chip-val">Micotoxinas</span></div>
+    <div class="chip"><span class="chip-label">Riesgo clínico</span><span class="chip-val">Factores de virulencia</span></div>
+  </div>
+
+  <p>Esta dualidad es característica de los hongos filamentosos: el mismo género que produce la penicilina puede sintetizar citrinina o patulina, toxinas con efectos nefrotóxicos. Comprender cuándo y por qué un hongo produce metabolitos beneficiosos o dañinos es una de las preguntas centrales de la micología aplicada.</p>
+
+  <!-- 4. MICOTOXINAS -->
+  <h2>Micotoxinas: el riesgo invisible</h2>
+  <p>Las <strong>micotoxinas</strong> son compuestos orgánicos de bajo peso molecular producidos como metabolitos secundarios por hongos filamentosos. Se acumulan en el sustrato colonizado granos, especias, frutos secos, forrajes y representan un riesgo para la salud humana y animal incluso en ausencia del hongo activo.</p>
+
+  <div class="alert-box">
+    <strong>⚠️ Punto crítico:</strong> La mayoría de las micotoxinas son <strong>termoestables</strong> y no se destruyen a las temperaturas de cocción habituales (100–180 °C). Un alimento visualmente libre de moho puede contener niveles tóxicos de aflatoxinas, ocratoxinas o fumonisinas si fue contaminado durante el almacenamiento.
+  </div>
+
+  <div class="data-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Micotoxina</th>
+          <th>Hongo productor</th>
+          <th>Órgano diana</th>
+          <th>Efecto principal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Aflatoxinas B1/B2</td><td><em>A. flavus, A. parasiticus</em></td><td>Hígado</td><td>Hepatotóxico, carcinógeno (Grupo 1 IARC)</td></tr>
+        <tr><td>Ocratoxina A</td><td><em>A. ochraceus, P. verrucosum</em></td><td>Riñón</td><td>Nefrotóxico, inmunosupresor</td></tr>
+        <tr><td>Patulina</td><td><em>Penicillium expansum</em></td><td>SNC, intestino</td><td>Neurotóxico, gastrointestinal</td></tr>
+        <tr><td>Fumonisinas</td><td><em>Fusarium moniliforme</em></td><td>Hígado, pulmón</td><td>Hepatotóxico, posible carcinógeno (2B)</td></tr>
+        <tr><td>Tricotecenos</td><td><em>Fusarium</em> spp.</td><td>Sistema inmune</td><td>Inmunosupresor, inhibe síntesis proteica</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5. PUENTE -->
+  <h2>De la intoxicación a la infección</h2>
+  <p>Hasta aquí hemos visto cómo los hongos afectan la salud a través de sus toxinas sin necesidad de infectar el organismo. Pero bajo ciertas condiciones, los hongos filamentosos pueden ir más allá y <strong>colonizar directamente tejidos humanos</strong>, especialmente en personas con defensas comprometidas.</p>
+  <p>La distinción entre ambos mecanismos es fundamental para entender las enfermedades que siguen:</p>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <div class="compare-card-head orange">Micotoxicosis</div>
+      <ul>
+        <li>Causada por ingestión o inhalación de toxinas</li>
+        <li>No requiere infección activa</li>
+        <li>El hongo no invade tejidos</li>
+        <li>Efectos crónicos o agudos según dosis</li>
+        <li>Exposición frecuente en población general</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <div class="compare-card-head red">Micosis invasiva</div>
+      <ul>
+        <li>Causada por invasión directa de tejidos</li>
+        <li>Requiere inmunosupresión severa</li>
+        <li>El hongo prolifera en el huésped</li>
+        <li>Cuadro clínico grave, mortalidad alta</li>
+        <li>Afecta principalmente a poblaciones de riesgo</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>La exposición a esporas es universal: respiramos conidios de <em>Aspergillus</em> diariamente sin consecuencias. El sistema inmune los elimina mediante macrófagos alveolares y neutrófilos. Cuando este mecanismo falla por quimioterapia, trasplante, VIH avanzado o uso de corticosteroides las esporas pueden germinar en los tejidos con consecuencias graves.</p>
+
+  <!-- 6. ASPERGILOSIS -->
+  <h2>Aspergilosis</h2>
+  <p><em>Aspergillus fumigatus</em> es responsable de la mayoría de los casos de aspergilosis invasiva, seguido por <em>A. flavus</em> y <em>A. terreus</em>. Sus conidios (2–3 μm de diámetro) son lo suficientemente pequeños para alcanzar los alvéolos pulmonares. En un huésped inmunocompetente son eliminados por depuración mucociliar y fagocitosis; en un huésped inmunosuprimido, germinan, forman hifas invasivas y penetran tejido pulmonar y vasos sanguíneos.</p>
+
+  <div class="figure-wrap">
+    <img src="Recurso 22Aspergilosis.png" alt="Diagrama de aspergilosis: vías de entrada, órganos afectados y diseminación sistémica">
+    <div class="figure-caption"><strong>Figura 1.</strong> Aspergilosis: inhalación de conidios de <em>Aspergillus</em> a través de alimentos contaminados o el ambiente, colonización pulmonar con dos patrones de infiltrado (afectación leve e invasiva), y diseminación potencial a SNC y tracto gastrointestinal. Las estructuras dentro del pulmón representan la transición conidia → hifa invasiva. Ilustración: Biología Ilustrativa.</div>
+  </div>
+
+  <p>La aspergilosis no es una única enfermedad sino un <strong>espectro de presentaciones clínicas</strong> determinado por el estado inmunológico del paciente:</p>
+
+  <div class="data-table-wrap">
+    <table>
+      <thead>
+        <tr><th>Forma clínica</th><th>Perfil de paciente</th><th>Manifestación principal</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Aspergilosis broncopulmonar alérgica (ABPA)</td><td>Asma, fibrosis quística</td><td>Hipersensibilidad, broncoespasmo, eosinofilia</td></tr>
+        <tr><td>Aspergiloma</td><td>Cavidades pulmonares previas (TB, EPOC)</td><td>Hemoptisis, masa fúngica en cavidad</td></tr>
+        <tr><td>Aspergilosis pulmonar crónica (APC)</td><td>Inmunosupresión leve, EPOC, diabetes</td><td>Tos crónica, pérdida de peso, infiltrados</td></tr>
+        <tr><td>Aspergilosis invasiva (AI)</td><td>Neutropenia, trasplante, corticoides</td><td>Fiebre, hemoptisis, signo del halo en TC</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Los síntomas de mayor relevancia clínica incluyen fiebre persistente que no responde a antibióticos de amplio espectro, dolor pleurítico y hemoptisis en formas invasivas, infiltrados pulmonares con el característico signo del halo en tomografía, y en casos de diseminación: cefalea, déficits neurológicos y convulsiones por compromiso del SNC.</p>
+
+  <div class="highlight-box">
+    <strong>Dato epidemiológico:</strong> Según datos de GAFFI (Global Action Fund for Fungal Infections), se estiman más de 300.000 casos anuales de aspergilosis invasiva en el mundo, con mortalidades que oscilan entre el 30 % y el 95 % dependiendo del grado de inmunosupresión y la oportunidad del diagnóstico.
+  </div>
+
+  <!-- 7. PENICILOSIS -->
+  <h2>Penicilosis (Talaromicosis)</h2>
+  <p>La penicilosis actualmente denominada <strong>talaromicosis</strong> tras la reclasificación taxonómica de su agente causal es producida por <em>Talaromyces marneffei</em> (anteriormente <em>Penicillium marneffei</em>). A diferencia de la mayoría de los hongos filamentosos, este organismo es <strong>dimórfico</strong>: crece como moho en el ambiente pero adopta una forma levaduriforme dentro del organismo humano, lo que le permite sobrevivir y replicarse en el interior de los macrófagos.</p>
+
+  <div class="figure-wrap">
+    <img src="Recurso 23Penicilosis.png" alt="Diagrama de penicilosis: ciclo intracelular, órganos afectados y diseminación hematógena">
+    <div class="figure-caption"><strong>Figura 2.</strong> Talaromicosis por <em>Talaromyces marneffei</em>: inhalación de conidios, colonización pulmonar y diseminación a SNC, tracto gastrointestinal y piel. Las ilustraciones inferiores muestran el ciclo intracelular: el hongo en forma levaduriforme dentro de un granuloma (izquierda), dentro de un macrófago tisular (centro) y en la circulación sanguínea (derecha), evidenciando la parasitación intracelular característica de esta micosis. Ilustración: Biología Ilustrativa.</div>
+  </div>
+
+  <p>El <strong>dimorfismo térmico</strong> es el rasgo definitorio de <em>T. marneffei</em>. A 25 °C (temperatura ambiental) crece como micelio productor de conidios. A 37 °C (temperatura corporal) convierte su morfología a levaduras con división por fisión no por gemación como <em>Candida</em>, generando células en forma de salchicha visibles en los macrófagos del tejido infectado.</p>
+  <p>Esta forma levaduriforme resiste la fagocitosis letal, se replica dentro de los macrófagos y se disemina con ellos a través del torrente sanguíneo hacia hígado, bazo, ganglios linfáticos, piel y sistema nervioso central.</p>
+
+  <p>Las <strong>poblaciones de mayor riesgo</strong> son:</p>
+  <div class="risk-grid">
+    <div class="risk-item">VIH/sida con CD4 &lt; 100 células/μL</div>
+    <div class="risk-item">Inmunodeficiencias primarias (anti-IFN-γ)</div>
+    <div class="risk-item">Trasplante de órgano sólido</div>
+    <div class="risk-item">Corticosteroides prolongados</div>
+    <div class="risk-item">Enfermedades autoinmunes en tratamiento biológico</div>
+    <div class="risk-item">Residencia o viaje a Asia Sudoriental / NE de India</div>
+  </div>
+
+  <p>Los síntomas más característicos incluyen fiebre prolongada, pérdida de peso y astenia marcada; <strong>lesiones cutáneas umbilicadas</strong> signo altamente sugestivo de la enfermedad; hepatoesplenomegalia y linfadenopatía generalizada; anemia y trombocitopenia por invasión de médula ósea; y en casos graves, fungemia con diseminación a SNC.</p>
+
+  <div class="danger-box">
+    <strong>⚠️ Alerta diagnóstica:</strong> La talaromicosis es endémica en el sudeste asiático, pero se está describiendo en otras regiones por migración y viajes. En pacientes con VIH avanzado y fiebre de origen no aclarado, debe considerarse en el diagnóstico diferencial junto con tuberculosis y criptococosis. El retraso diagnóstico es la principal causa de mortalidad, que supera el 30 % incluso con tratamiento.
+  </div>
+
+  <!-- 8. RESISTENCIA -->
+  <h2>Resistencia a los antifúngicos</h2>
+  <p>Al igual que ocurre con las bacterias, el uso extendido y en ocasiones inadecuado de antifúngicos, tanto en medicina humana como en agricultura, ha favorecido la selección de <strong>cepas resistentes</strong>. Esta resistencia representa uno de los desafíos más graves de la micología clínica contemporánea.</p>
+  <p><em>Aspergillus fumigatus</em> resistente a azoles es el caso de mayor preocupación: se han identificado cepas con mutaciones en el gen <em>cyp51A</em> asociadas al uso de fungicidas triazólicos en campos agrícolas, lo que implica que la exposición ambiental genera presión selectiva sobre estas poblaciones, independientemente del tratamiento clínico.</p>
+  <p>Los hongos pueden desarrollar resistencia mediante distintos mecanismos:</p>
   <ul>
-    <li>Alcoholes empleados en fermentación</li>
-    <li>Ácidos orgánicos usados en alimentos y cosméticos</li>
-    <li>Otros compuestos aprovechados en procesos biotecnológicos</li>
-  </ul>
-
-  <p>Un ejemplo importante es el <strong>ácido cítrico</strong>, producido por <em>Aspergillus niger</em>, ampliamente utilizado en la industria alimentaria y farmacéutica.</p>
-
-  <p>Sin embargo, los hongos también pueden producir sustancias que cumplen funciones de defensa o competencia con otros microorganismos, entre ellas los <strong>antibióticos y las micotoxinas</strong>.</p>
-
-  <h2>Micotoxinas: un riesgo invisible</h2>
-  <p>Las <strong>micotoxinas</strong> son compuestos tóxicos producidos por algunos hongos filamentosos. Pueden encontrarse en alimentos como cereales, frutos secos, frutas deshidratadas y especias.</p>
-  <p>Su crecimiento puede ocurrir:</p>
-  <ul>
-    <li>Antes de la cosecha</li>
-    <li>Durante el almacenamiento</li>
-    <li>Directamente en el alimento, especialmente en ambientes cálidos y húmedos</li>
+    <li>Mutaciones en el sitio de acción (ergosterol, gen <em>cyp51A</em>)</li>
+    <li>Sobreexpresión de bombas de eflujo que expulsan el fármaco</li>
+    <li>Formación de biopelículas que limitan la penetración del antifúngico</li>
+    <li>Reducción de la permeabilidad de la pared fúngica</li>
   </ul>
 
   <div class="highlight-box">
-    <strong>⚠️ Aspecto preocupante:</strong> Muchas micotoxinas no se eliminan fácilmente con el calor ni con el procesamiento, lo que representa un riesgo significativo para la salud humana y requiere medidas preventivas desde la producción hasta el almacenamiento.
+    <strong> Uso racional:</strong> El voriconazol es el antifúngico de primera línea para la aspergilosis invasiva, y la anfotericina B liposomal para la talaromicosis severa. La detección temprana de resistencias mediante pruebas de sensibilidad es indispensable para orientar el tratamiento y evitar fallas terapéuticas en pacientes de alto riesgo.
   </div>
-
-  <div class="figure-wrap">
-    <img src="Intoxicacion.png" alt="Representación de intoxicación por micotoxinas">
-    <div class="figure-caption"><strong>Figura 4.</strong> Efectos de la intoxicación por micotoxinas en la salud</div>
-  </div>
-
-  <h2>Hongos y resistencia a los antifúngicos</h2>
-  <p>En la actualidad, al igual que ocurre con las bacterias, el uso excesivo de antifúngicos ha favorecido la aparición de <strong>hongos resistentes</strong>.</p>
-  <p>Según la Fundación de Acción Global para las Infecciones Fúngicas (GAFFI), un número reducido de especies causa la mayoría de las infecciones fúngicas humanas, y estas infecciones representan un importante problema de salud pública.</p>
-  <p>Los hongos pueden desarrollar resistencia mediante distintos mecanismos:</p>
-  <ul>
-    <li>Cambios en sus estructuras celulares</li>
-    <li>Expulsión de los fármacos</li>
-    <li>Formación de comunidades que los protegen</li>
-  </ul>
-
-  <p>Esto dificulta su tratamiento y refuerza la necesidad de un <strong>uso responsable de los antifúngicos</strong>.</p>
 
 </article>
 
-<!-- REFLEXIÓN FINAL -->
+<!-- ════════════════════════════════ REFLEXIÓN FINAL ════════════════════════════════ -->
 <div class="reflection-wrap">
   <div class="reflection-box">
     <h2>Reflexión final</h2>
-    <p>Los hongos filamentosos no son solo el moho visible en los alimentos. Son organismos con una biología compleja, capaces de colonizar ambientes, producir sustancias útiles para la industria, generar toxinas que afectan la salud y adaptarse a los tratamientos antifúngicos.</p>
+    <p>Los hongos filamentosos representan mucho más que el moho visible en los alimentos. Son organismos con una biología compleja, capaces de producir toxinas que persisten en la cadena alimentaria, de colonizar tejidos humanos ante la menor brecha inmunológica y de adaptarse a los antifúngicos disponibles.</p>
     <p>Comprender su funcionamiento nos permite:</p>
-    <p style="margin: 1rem 0;">
-      <strong style="color: var(--verde-claro);">✓</strong> Mejorar la conservación de los alimentos<br>
-      <strong style="color: var(--verde-claro);">✓</strong> Reducir riesgos para la salud<br>
-      <strong style="color: var(--verde-claro);">✓</strong> Valorar su impacto ambiental y social
+    <p style="margin: 1rem 0; line-height: 2.2;">
+      <strong>✓</strong> Mejorar la conservación de los alimentos y reducir la contaminación por micotoxinas<br>
+      <strong>✓</strong> Reconocer poblaciones en riesgo y favorecer el diagnóstico temprano de micosis invasivas<br>
+      <strong>✓</strong> Usar los antifúngicos de forma responsable, tanto en clínica como en agricultura
     </p>
     <div class="article-tags">
       <span class="article-tag-item">Hongos</span>
       <span class="article-tag-item">Microbiología</span>
-      <span class="article-tag-item">Alimentos</span>
-      <span class="article-tag-item">Salud pública</span>
+      <span class="article-tag-item">Aspergilosis</span>
+      <span class="article-tag-item">Penicilosis</span>
       <span class="article-tag-item">Micotoxinas</span>
+      <span class="article-tag-item">Salud pública</span>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
+<!-- ════════════════════════════════ FOOTER ════════════════════════════════ -->
 <footer>
   <p>© 2026 · <strong style="color:rgba(255,255,255,0.7)">Biología Ilustrativa</strong> · <a href="mailto:mayerlin.lemos.ilustra@gmail.com">Mayerlin Lemos</a></p>
   <p>Sígueme en <a href="https://www.instagram.com/biologia_ilustrativa/">Instagram</a></p>

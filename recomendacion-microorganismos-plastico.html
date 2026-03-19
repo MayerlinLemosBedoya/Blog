@@ -50,8 +50,8 @@
 
     /* CONTENIDO */
     .article-content { max-width: 740px; margin: 0 auto; padding: 4rem 1.5rem 5rem; }
-    .intro { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic; color: var(--texto-suave); border-left: 3px solid var(--verde-claro); padding-left: 1.2rem; margin-bottom: 2.5rem; line-height: 1.7; }
-    .article-content p { font-size: 1rem; color: var(--texto); margin-bottom: 1.4rem; line-height: 1.85; }
+    .intro { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic; color: var(--texto-suave); border-left: 3px solid var(--verde-claro); padding-left: 1.2rem; margin-bottom: 2.5rem; line-height: 1.7; text-align: justify; }
+    .article-content p { font-size: 1rem; color: var(--texto); margin-bottom: 1.4rem; line-height: 1.85; text-align: justify; }
     .article-content h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--verde-oscuro); margin: 3rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--verde-palido); }
     .article-content h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--verde-medio); margin: 2rem 0 0.8rem; }
     .article-content strong { color: var(--verde-medio); }
@@ -63,7 +63,7 @@
     .organism-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(26,61,43,0.14); }
     .organism-card .org-icon { font-size: 2rem; margin-bottom: 0.6rem; display: block; }
     .organism-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--verde-oscuro); margin-bottom: 0.6rem; }
-    .organism-card p { font-size: 0.87rem; color: var(--texto-suave); line-height: 1.6; margin: 0; }
+    .organism-card p { font-size: 0.87rem; color: var(--texto-suave); line-height: 1.6; margin: 0; text-align: justify; }
     .organism-card .species { font-size: 0.82rem; color: var(--acento); font-style: italic; margin-top: 0.6rem; font-weight: 500; }
 
     /* Pasos de biodegradación */
@@ -72,14 +72,14 @@
     .step-num { width: 52px; height: 52px; background: var(--verde-oscuro); color: var(--verde-claro); font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .step-body { background: var(--verde-mint); border: 1px solid var(--verde-palido); border-radius: 12px; padding: 1.2rem 1.4rem; }
     .step-body h4 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--verde-oscuro); margin-bottom: 0.5rem; }
-    .step-body p { font-size: 0.92rem; color: var(--texto-suave); margin: 0; line-height: 1.7; }
+    .step-body p { font-size: 0.92rem; color: var(--texto-suave); margin: 0; line-height: 1.7; text-align: justify; }
     .step-body .enzymes { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.7rem; }
     .enzyme-tag { background: var(--verde-oscuro); color: var(--verde-claro); font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.7rem; border-radius: 100px; }
 
     /* Highlight y quote */
-    .highlight-box { background: var(--verde-mint); border: 1px solid var(--verde-palido); border-left: 4px solid var(--verde-claro); border-radius: 12px; padding: 1.5rem 1.8rem; margin: 1.5rem 0; font-size: 0.97rem; color: var(--texto-suave); line-height: 1.8; }
+    .highlight-box { background: var(--verde-mint); border: 1px solid var(--verde-palido); border-left: 4px solid var(--verde-claro); border-radius: 12px; padding: 1.5rem 1.8rem; margin: 1.5rem 0; font-size: 0.97rem; color: var(--texto-suave); line-height: 1.8; text-align: justify; }
     .highlight-box strong { color: var(--verde-oscuro); }
-    .quote { background: var(--verde-mint); border-left: 4px solid var(--verde-claro); border-radius: 0 12px 12px 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0; font-family: 'Playfair Display', serif; font-size: 1.05rem; font-style: italic; color: var(--verde-oscuro); }
+    .quote { background: var(--verde-mint); border-left: 4px solid var(--verde-claro); border-radius: 0 12px 12px 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0; font-family: 'Playfair Display', serif; font-size: 1.05rem; font-style: italic; color: var(--verde-oscuro); text-align: justify; }
 
     /* Plásticos tabla */
     .plastics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.8rem; margin: 1.2rem 0; }
@@ -89,7 +89,7 @@
 
     /* Lista */
     .article-list { list-style: none; margin: 1rem 0 1.5rem; padding: 0; }
-    .article-list li { padding: 0.5rem 0 0.5rem 1.6rem; position: relative; font-size: 0.97rem; color: var(--texto); border-bottom: 1px solid var(--verde-palido); }
+    .article-list li { padding: 0.5rem 0 0.5rem 1.6rem; position: relative; font-size: 0.97rem; color: var(--texto); border-bottom: 1px solid var(--verde-palido); text-align: justify; }
     .article-list li:last-child { border-bottom: none; }
     .article-list li::before { content: '→'; position: absolute; left: 0; color: var(--verde-claro); font-weight: 600; }
 
@@ -281,7 +281,7 @@
 
   <!-- Reflexión -->
   <div class="reflection-box">
-    <h3>🌿 Reflexión crítica</h3>
+    <h3> Reflexión crítica</h3>
     <p>La biodegradación microbiana del plástico es una herramienta prometedora, pero la literatura científica coincide en que <strong>no puede considerarse una solución única ni inmediata</strong>. Debe entenderse como parte de un enfoque integral que incluya la reducción en la producción de plásticos, el rediseño de materiales y cambios profundos en los modelos de consumo.</p>
     <p>El verdadero valor de estos microorganismos no está solo en "eliminar plástico", sino en lo que nos enseñan sobre <strong>la versatilidad metabólica de la vida</strong> y las posibilidades de desarrollar soluciones biotecnológicas más responsables y controladas.</p>
   </div>
