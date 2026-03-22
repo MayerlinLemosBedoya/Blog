@@ -4,8 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Biología Ilustrativa | Ciencia y arte</title>
+
+  <!-- SEO Meta tags -->
+  <meta name="description" content="Biología Ilustrativa — Divulgación científica ilustrada por Mayerlin Lemos Bedoya. Microbiología, ilustración científica y arte visual desde Colombia.">
+  <meta name="keywords" content="biología ilustrativa, ilustración científica, microbiología, divulgación científica, Mayerlin Lemos, Colombia">
+  <meta name="author" content="Mayerlin Lemos Bedoya">
+
+  <!-- Open Graph — para que se vea bonito en WhatsApp y LinkedIn -->
+  <meta property="og:title" content="Biología Ilustrativa | Donde la ciencia se vuelve visible">
+  <meta property="og:description" content="Divulgación científica ilustrada. Microbiología, células, microorganismos y arte visual desde Colombia.">
+  <meta property="og:image" content="https://blogbiologiailustrati.netlify.app/Logofinal.png">
+  <meta property="og:url" content="https://blogbiologiailustrati.netlify.app">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="icon" type="image/png" href="Favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --verde-oscuro: #1a3d2b;
@@ -19,17 +34,66 @@
       --blanco: #ffffff;
       --sombra: 0 4px 24px rgba(26, 61, 43, 0.10);
       --sombra-hover: 0 8px 36px rgba(26, 61, 43, 0.18);
+
+      /* Modo oscuro */
+      --bg: #ffffff;
+      --card-bg: #ffffff;
+      --border: var(--verde-palido);
+    }
+
+    body.dark {
+      --bg: #0d1f15;
+      --card-bg: #142a1e;
+      --border: rgba(116,198,157,0.15);
+      --texto: #e4f0ec;
+      --texto-suave: #8ab89a;
+      background: var(--bg);
+      color: var(--texto);
+    }
+
+    body.dark header {
+      background: rgba(13,31,21,0.95);
+      border-bottom-color: rgba(116,198,157,0.15);
+    }
+
+    body.dark .card {
+      background: var(--card-bg);
+      border-color: var(--border);
+    }
+
+    body.dark .card-personal {
+      background: var(--card-bg);
+      border-color: var(--border);
+    }
+
+    body.dark section[style*="var(--blanco)"] {
+      background: var(--bg) !important;
+    }
+
+    body.dark .recursos-bg {
+      background: #0a1910;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background: var(--blanco);
+      background: var(--bg);
       color: var(--texto);
       line-height: 1.7;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* ─── BARRA DE PROGRESO ─── */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--verde-claro), var(--acento));
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s;
     }
 
     /* ─── HEADER ─── */
@@ -41,6 +105,7 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--verde-palido);
       padding: 0.75rem 2rem;
+      transition: background 0.3s;
     }
 
     .header-inner {
@@ -78,6 +143,22 @@
 
     nav a:hover { color: var(--acento); }
     nav a:hover::after { width: 100%; }
+    nav a.active { color: var(--acento); }
+    nav a.active::after { width: 100%; }
+
+    /* Botón modo oscuro */
+    .dark-toggle {
+      background: var(--verde-mint);
+      border: 1px solid var(--verde-palido);
+      border-radius: 100px;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s;
+      color: var(--verde-oscuro);
+    }
+
+    .dark-toggle:hover { background: var(--verde-palido); }
 
     .menu-btn {
       display: none;
@@ -197,9 +278,39 @@
       box-shadow: 0 8px 24px rgba(116,198,157,0.4);
     }
 
+    /* Stats hero */
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(116,198,157,0.2);
+    }
+
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--verde-claro);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.06em;
+    }
+
     /* ─── SECCIONES ─── */
     section { padding: 5rem 2rem; }
-
     .section-inner { max-width: 1200px; margin: 0 auto; }
 
     .section-label {
@@ -223,6 +334,33 @@
     .section-title.center { text-align: center; }
     .section-label.center { display: block; text-align: center; }
 
+    /* ─── FILTROS DE CATEGORÍA ─── */
+    .filter-bar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      border: 1.5px solid var(--verde-palido);
+      background: transparent;
+      color: var(--texto-suave);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--verde-oscuro);
+      border-color: var(--verde-oscuro);
+      color: var(--blanco);
+    }
+
     /* ─── GRID DE ARTÍCULOS ─── */
     .articles-grid {
       display: grid;
@@ -231,7 +369,7 @@
     }
 
     .card {
-      background: var(--blanco);
+      background: var(--card-bg, var(--blanco));
       border-radius: 16px;
       overflow: hidden;
       box-shadow: var(--sombra);
@@ -248,10 +386,9 @@
 
     .card-img {
       width: 100%;
-      /* make the thumbnail smaller so full picture fits and avoid cropping */
       height: 160px;
-      object-fit: contain; /* show entire image instead of cutting off */
-      background: var(--verde-palido); /* light neutral fill if aspect ratios differ */
+      object-fit: contain;
+      background: var(--verde-palido);
       display: block;
     }
 
@@ -267,7 +404,31 @@
       color: var(--texto-suave);
       font-weight: 500;
       letter-spacing: 0.04em;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Tiempo de lectura */
+    .read-time {
+      font-size: 0.72rem;
+      color: var(--acento);
+      background: var(--verde-mint);
+      padding: 2px 8px;
+      border-radius: 100px;
+      font-weight: 500;
+    }
+
+    /* Categoría de la card */
+    .card-category {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--acento);
+      margin-bottom: 0.5rem;
     }
 
     .card-title {
@@ -300,18 +461,196 @@
 
     .card-link:hover { gap: 0.6rem; }
 
-    /* Card con imagen grande (featured) */
-    .card-featured {
-      grid-column: span 2;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    .card-buttons {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
     }
 
-    .card-featured .card-img {
-      height: 100%;
-      min-height: 200px; /* slightly smaller featured image container */
-      object-fit: contain;
-      
+    .card-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      background: var(--verde-oscuro);
+      color: var(--blanco);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .card-btn-primary:hover { background: var(--acento); }
+
+    .card-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      background: transparent;
+      color: var(--acento);
+      text-decoration: none;
+      border: 1.5px solid var(--verde-palido);
+      transition: all 0.2s;
+    }
+
+    .card-btn-secondary:hover {
+      border-color: var(--verde-claro);
+      background: var(--verde-mint);
+    }
+
+    /* ─── REVISTA SECCIÓN ─── */
+    .revista-bg { background: var(--verde-oscuro); }
+
+    .revista-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(116,198,157,0.2);
+      border-radius: 20px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      backdrop-filter: blur(10px);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .revista-img {
+      background: rgba(116,198,157,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem;
+      border-right: 1px solid rgba(116,198,157,0.15);
+    }
+
+    .revista-img img {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      transform: rotate(-2deg);
+      transition: transform 0.3s;
+    }
+
+    .revista-img img:hover { transform: rotate(0deg) scale(1.02); }
+
+    .revista-content {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .revista-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--verde-claro);
+      background: rgba(116,198,157,0.15);
+      border: 1px solid rgba(116,198,157,0.3);
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+    }
+
+    .revista-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--blanco);
+      line-height: 1.2;
+    }
+
+    .revista-desc {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .revista-stats {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      border: 1px solid rgba(116,198,157,0.1);
+    }
+
+    .revista-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      flex: 1;
+    }
+
+    .revista-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--verde-claro);
+      line-height: 1;
+    }
+
+    .revista-stat-label {
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .revista-btns {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-revista-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--verde-claro);
+      color: var(--verde-oscuro);
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-revista-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(116,198,157,0.3);
+    }
+
+    .btn-revista-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: transparent;
+      color: var(--verde-claro);
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: 100px;
+      text-decoration: none;
+      border: 1.5px solid rgba(116,198,157,0.4);
+      transition: all 0.2s;
+    }
+
+    .btn-revista-secondary:hover {
+      border-color: rgba(116,198,157,0.8);
+      background: rgba(116,198,157,0.08);
     }
 
     /* ─── RECURSOS ─── */
@@ -344,7 +683,7 @@
     }
 
     .card-personal {
-      background: var(--blanco);
+      background: var(--card-bg, var(--blanco));
       border-radius: 14px;
       padding: 2rem;
       border: 1px solid var(--verde-palido);
@@ -392,7 +731,6 @@
     }
 
     .sobre-mi-inner .section-label { color: var(--verde-claro); display: block; text-align: center; }
-
     .sobre-mi-inner .section-title { color: var(--blanco); margin-bottom: 2rem; text-align: center; }
 
     .author-card {
@@ -464,21 +802,76 @@
 
     .author-info strong { color: var(--verde-claro); font-weight: 600; }
 
-    @media (max-width: 768px) {
-      .author-card {
-        grid-template-columns: 1fr;
-        padding: 2rem;
-        gap: 1.5rem;
-        text-align: center;
-      }
-      .author-photo {
-        width: 200px;
-        height: 200px;
-        margin: 0 auto;
-      }
-      .author-info h3 {
-        font-size: 1.6rem;
-      }
+    /* ─── NEWSLETTER ─── */
+    .newsletter-bg { background: var(--verde-oscuro); }
+
+    .newsletter-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .newsletter-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--blanco);
+      margin-bottom: 0.8rem;
+    }
+
+    .newsletter-inner p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 0.85rem 1.2rem;
+      border-radius: 100px;
+      border: 1.5px solid rgba(116,198,157,0.3);
+      background: rgba(255,255,255,0.08);
+      color: var(--blanco);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .newsletter-input::placeholder { color: rgba(255,255,255,0.4); }
+    .newsletter-input:focus { border-color: var(--verde-claro); }
+
+    .newsletter-btn {
+      padding: 0.85rem 1.5rem;
+      border-radius: 100px;
+      background: var(--verde-claro);
+      color: var(--verde-oscuro);
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+
+    .newsletter-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(116,198,157,0.3);
+    }
+
+    .newsletter-note {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      margin-top: 1rem;
     }
 
     /* ─── FOOTER ─── */
@@ -494,10 +887,7 @@
       font-size: 0.85rem;
     }
 
-    footer a {
-      color: var(--verde-claro);
-      text-decoration: none;
-    }
+    footer a { color: var(--verde-claro); text-decoration: none; }
 
     /* ─── BOTÓN FLOTANTE ─── */
     .fab {
@@ -529,16 +919,36 @@
       nav { display: none; }
       .menu-btn { display: block; }
 
-      .card-featured {
-        grid-column: span 1;
+      .revista-card {
         grid-template-columns: 1fr;
       }
 
-      .card-featured .card-img { height: 200px; }
+      .revista-img {
+        border-right: none;
+        border-bottom: 1px solid rgba(116,198,157,0.15);
+        padding: 2rem;
+      }
+
+      .author-card {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .author-photo {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
 
       section { padding: 3.5rem 1.2rem; }
-
       .fab span:last-child { display: none; }
+      .hero-stats { gap: 1.5rem; }
     }
 
     /* ─── ANIMACIONES ─── */
@@ -555,9 +965,25 @@
     .hero-inner > *:nth-child(2) { animation-delay: 0.25s; }
     .hero-inner > *:nth-child(3) { animation-delay: 0.4s; }
     .hero-inner > *:nth-child(4) { animation-delay: 0.55s; }
+    .hero-inner > *:nth-child(5) { animation-delay: 0.7s; }
+
+    /* Animación al hacer scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
+
+<!-- BARRA DE PROGRESO -->
+<div id="progress-bar"></div>
 
 <!-- HEADER -->
 <header>
@@ -569,14 +995,17 @@
     <nav id="nav-menu">
       <a href="index.html">Inicio</a>
       <a href="#sobre-mi">Sobre mí</a>
+      <a href="#revista">Revista</a>
       <a href="https://portafoliodemayerlinlemosbedoya.netlify.app/aprendizaje/tarjetapresentaci%C3%B3n/" target="_blank">Portafolio</a>
       <a href="articulo1.html">Blog</a>
       <a href="mailto:mayerlin.lemos.ilustra@gmail.com">Contacto</a>
+      <button class="dark-toggle" id="dark-toggle" title="Modo oscuro">🌙</button>
     </nav>
   </div>
   <div class="mobile-menu" id="mobile-menu">
     <a href="index.html">Inicio</a>
     <a href="#sobre-mi">Sobre mí</a>
+    <a href="#revista">Revista</a>
     <a href="https://portafoliodemayerlinlemosbedoya.netlify.app/aprendizaje/tarjetapresentaci%C3%B3n/" target="_blank">Portafolio</a>
     <a href="articulo1.html">Blog</a>
     <a href="mailto:mayerlin.lemos.ilustra@gmail.com">Contacto</a>
@@ -590,6 +1019,24 @@
     <h1>Donde la ciencia<br>se vuelve <em>visible</em></h1>
     <p>Un espacio dedicado a la divulgación científica ilustrada, desde la microbiología y las artes visuales.</p>
     <a href="#recomendacion" class="hero-cta">Explorar artículos ↓</a>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">7+</span>
+        <span class="hero-stat-label">Artículos</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">1</span>
+        <span class="hero-stat-label">Revista digital</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">10+</span>
+        <span class="hero-stat-label">Ilustraciones propias</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">🇨🇴</span>
+        <span class="hero-stat-label">Desde Colombia</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -598,22 +1045,21 @@
   <div class="sobre-mi-inner">
     <span class="section-label">Quién soy</span>
     <h2 class="section-title">Conoce a la creadora</h2>
-    
-    <div class="author-card">
+    <div class="author-card fade-in">
       <img src="Mayerlin Lemos.jpeg" alt="Mayerlin Lemos" class="author-photo">
-      
       <div class="author-info">
         <h3>Mayerlin Lemos Bedoya</h3>
         <span class="author-badge">Fundadora</span>
-        
         <div class="author-roles">
           <span class="role-badge">Microbióloga</span>
           <span class="role-badge">Ilustradora Científica</span>
           <span class="role-badge">Front End Developer</span>
         </div>
-        
         <p>
           Bienvenid@ a <strong>Biología Ilustrativa</strong>, un espacio dedicado a la divulgación de la ciencia desde una mirada crítica, ilustrada y consciente. Aquí cada ilustración es también una forma de conocimiento.
+        </p>
+        <p style="margin-top:0.8rem;">
+          Disponible para proyectos de <strong>ilustración científica</strong>, <strong>diseño editorial</strong> y <strong>divulgación visual</strong>. ¿Tienes un proyecto? Escríbeme.
         </p>
       </div>
     </div>
@@ -626,78 +1072,153 @@
     <span class="section-label">Contenido</span>
     <h2 class="section-title">Lecturas y recomendaciones</h2>
 
+    <!-- Filtros por categoría -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterCards('all', this)">Todos</button>
+      <button class="filter-btn" onclick="filterCards('microbiologia', this)">Microbiología</button>
+      <button class="filter-btn" onclick="filterCards('alimentaria', this)">Seguridad alimentaria</button>
+      <button class="filter-btn" onclick="filterCards('ciencia', this)">Ciencia general</button>
+    </div>
+
     <div class="articles-grid">
 
-      <article class="card">
+      <article class="card fade-in" data-category="microbiologia">
         <img src="Portada degradacion.png" alt="Microorganismos degradadores de plástico" class="card-img">
         <div class="card-body">
-          <span class="card-date">10 de diciembre de 2025</span>
+          <span class="card-category">Microbiología ambiental</span>
+          <div class="card-date">
+            <span>10 de diciembre de 2025</span>
+            <span class="read-time">6 min</span>
+          </div>
           <h3 class="card-title">Microorganismos degradadores de plástico</h3>
           <p class="card-desc">¿Quiénes son?, ¿cómo lo hacen?, ¿qué dice la literatura científica? Un análisis desde la microbiología ambiental y la biotecnología.</p>
           <a href="recomendacion-microorganismos-plastico.html" class="card-link">Leer artículo →</a>
         </div>
       </article>
 
-      <article class="card">
+      <article class="card fade-in" data-category="ciencia">
         <img src="Cabello.png" alt="Ecosistema microbiano en el cabello" class="card-img">
         <div class="card-body">
-          <span class="card-date">18 de diciembre de 2025</span>
+          <span class="card-category">Microbiota</span>
+          <div class="card-date">
+            <span>18 de diciembre de 2025</span>
+            <span class="read-time">5 min</span>
+          </div>
           <h3 class="card-title">¿En nuestro cabello habita un ecosistema microbiano?</h3>
           <p class="card-desc">Un recorrido por las comunidades microbianas que viven en nuestro cabello, su importancia para la salud y el equilibrio del cuero cabelludo.</p>
           <a href="articulo-cabello.html" class="card-link">Leer artículo →</a>
         </div>
       </article>
 
-      <article class="card">
+      <article class="card fade-in" data-category="ciencia">
         <img src="Dolly portada.png" alt="La clonación y el futuro" class="card-img">
         <div class="card-body">
-          <span class="card-date">23 de diciembre de 2025</span>
+          <span class="card-category">Biotecnología</span>
+          <div class="card-date">
+            <span>23 de diciembre de 2025</span>
+            <span class="read-time">7 min</span>
+          </div>
           <h3 class="card-title">¿Es la clonación la clave para el futuro que conocemos?</h3>
           <p class="card-desc">Un análisis desde la microbiología sobre la clonación, sus tipos, implicaciones éticas y su rol en la ciencia actual.</p>
           <a href="recomendacion-clonacion.html" class="card-link">Leer artículo →</a>
         </div>
       </article>
 
-      <article class="card">
+      <article class="card fade-in" data-category="alimentaria">
         <img src="Portada vacas.jpg" alt="Enfermedad de las vacas locas" class="card-img">
         <div class="card-body">
-          <span class="card-date">16 de enero de 2026</span>
+          <span class="card-category">Seguridad alimentaria</span>
+          <div class="card-date">
+            <span>16 de enero de 2026</span>
+            <span class="read-time">8 min</span>
+          </div>
           <h3 class="card-title">Enfermedad de las vacas locas: priones y paradigma alimentario</h3>
           <p class="card-desc">Una enfermedad que cambió el paradigma de los riesgos alimentarios: priones y su impacto en la ciencia y la sociedad.</p>
           <a href="enfermedad-vacas-locas.html" class="card-link">Leer artículo →</a>
         </div>
       </article>
 
-      <article class="card">
+      <article class="card fade-in" data-category="alimentaria">
         <img src="Recurso 12Bacillus cerus portada.png" alt="Bacillus cereus en leche" class="card-img">
         <div class="card-body">
-          <span class="card-date">18 de enero de 2026</span>
+          <span class="card-category">Seguridad alimentaria</span>
+          <div class="card-date">
+            <span>18 de enero de 2026</span>
+            <span class="read-time">6 min</span>
+          </div>
           <h3 class="card-title">Contaminación por <em>Bacillus cereus</em> en leche para bebés</h3>
           <p class="card-desc">Una contaminación que ayuda a entender el papel del sistema HACCP y el control microbiológico en la industria alimentaria.</p>
           <a href="bacillus.html" class="card-link">Leer artículo →</a>
         </div>
       </article>
 
-      <article class="card">
+      <article class="card fade-in" data-category="microbiologia">
         <img src="Recurso 24Portada hongos.png" alt="Hongos filamentosos y micotoxinas" class="card-img">
         <div class="card-body">
-          <span class="card-date">4 de enero de 2026</span>
+          <span class="card-category">Microbiología</span>
+          <div class="card-date">
+            <span>4 de febrero de 2026</span>
+            <span class="read-time">7 min</span>
+          </div>
           <h3 class="card-title">Los hongos filamentosos: habitantes silenciosos de nuestros alimentos</h3>
           <p class="card-desc">Un análisis de la relación entre los hongos filamentosos y las micotoxinas en nuestra alimentación cotidiana.</p>
           <a href="hongos.html" class="card-link">Leer artículo →</a>
         </div>
       </article>
 
-      <article class="card">
+      <article class="card fade-in" data-category="microbiologia">
         <img src="Recurso 21amebiasis icon.png" alt="Amebas" class="card-img">
         <div class="card-body">
-          <span class="card-date">17 de marzo de 2026</span>
+          <span class="card-category">Parasitología</span>
+          <div class="card-date">
+            <span>17 de marzo de 2026</span>
+            <span class="read-time">8 min</span>
+          </div>
           <h3 class="card-title">Las amebas: mucho más que un parásito</h3>
           <p class="card-desc">Un recorrido por la biología, el ciclo de vida y el rol ecológico de uno de los organismos más fascinantes del mundo microscópico.</p>
           <a href="articulo_amebas.html" class="card-link">Leer artículo →</a>
         </div>
       </article>
 
+    </div>
+  </div>
+</section>
+
+<!-- REVISTA -->
+<section class="revista-bg" id="revista">
+  <div class="section-inner">
+    <div style="text-align:center; margin-bottom:2.5rem;">
+      <span class="section-label" style="color:var(--verde-claro);">Publicación digital · 2026</span>
+      <h2 class="section-title" style="color:var(--blanco); margin-bottom:0;">Microcosmos — Atlas Visual</h2>
+    </div>
+
+    <div class="revista-card fade-in">
+      <div class="revista-img">
+        <img src="Portada de revista.png" alt="Revista Microcosmos" onerror="this.style.display='none'">
+      </div>
+      <div class="revista-content">
+        <span class="revista-tag">Revista digital · PDF Interactivo</span>
+        <h3 class="revista-title">Atlas Visual del Mundo Microscópico</h3>
+        <p class="revista-desc">12 páginas de divulgación científica con ilustraciones propias, infografías de ciclos de infección, microfotografías reales de laboratorio e hipervínculos activos.</p>
+        <div class="revista-stats">
+          <div class="revista-stat">
+            <span class="revista-stat-num">12</span>
+            <span class="revista-stat-label">Páginas</span>
+          </div>
+          <div class="revista-stat" style="border-left:1px solid rgba(116,198,157,0.15); border-right:1px solid rgba(116,198,157,0.15);">
+            <span class="revista-stat-num">7</span>
+            <span class="revista-stat-label">Capítulos</span>
+          </div>
+          <div class="revista-stat">
+            <span class="revista-stat-num">100%</span>
+            <span class="revista-stat-label">Ilustrado</span>
+          </div>
+        </div>
+        <div class="revista-btns">
+          <a href="https://issuu.com/biologiailustrativa/docs/microcosmos_atlas_visual_del_mundo_microsc_pico_" target="_blank" class="btn-revista-primary">📖 Ver revista</a>
+          <a href="https://go.hotmart.com/S105029576Q?dp=1" target="_blank" class="btn-revista-secondary">↓ Adquirir ($3)</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -710,30 +1231,33 @@
 
     <div class="articles-grid">
 
-      <article class="card">
-        <img src="RAM.jpg" alt="Cartilla Microalgas y RAM" class="card-img">
-        <div class="card-body">
-          <h3 class="card-title">Cartilla: Microalgas aliadas frente a la RAM</h3>
-          <p class="card-desc">Cartilla educativa ilustrada sobre el papel de las microalgas en la resistencia antimicrobiana, dirigida a estudiantes y público general.</p>
-          <a href="Cartilla educativa-Microalgas.pdf" download class="btn-descarga">📥 Descargar cartilla</a>
-        </div>
-      </article>
-
-      <article class="card">
+      <article class="card fade-in">
         <img src="Portada lectura.png" alt="Top 5 libros recomendados" class="card-img">
         <div class="card-body">
+          <span class="card-category">Recomendación</span>
           <h3 class="card-title">Top 5 libros para personas curiosas por la ciencia</h3>
           <p class="card-desc">La ciencia no solo se aprende en el laboratorio. También se construye leyendo, cuestionando y conectando con la vida cotidiana.</p>
           <a href="top5-libros.html" class="card-link">Leer artículo →</a>
         </div>
       </article>
 
-      <article class="card">
+      <article class="card fade-in">
         <img src="Portada diatomeas.png" alt="Reseña diatomeas" class="card-img">
         <div class="card-body">
+          <span class="card-category">Reseña</span>
           <h3 class="card-title">Reseña: Las diatomeas y los bosques invisibles del océano</h3>
           <p class="card-desc">Un análisis del libro de Pedro Cermeno Aínsa sobre las diatomeas y su papel fundamental en los ecosistemas oceánicos.</p>
           <a href="reseña diatomeas .html" class="card-link" target="_blank">Leer reseña →</a>
+        </div>
+      </article>
+
+      <article class="card fade-in">
+        <img src="RAM.jpg" alt="Cartilla Microalgas y RAM" class="card-img">
+        <div class="card-body">
+          <span class="card-category">En proceso</span>
+          <h3 class="card-title">Cartilla: Microalgas aliadas frente a la RAM</h3>
+          <p class="card-desc">Cartilla educativa ilustrada sobre el papel de las microalgas en la resistencia antimicrobiana. Próximamente disponible.</p>
+          <span style="font-size:0.82rem; color:var(--acento); font-weight:500;">⏳ Publicación próxima</span>
         </div>
       </article>
 
@@ -746,15 +1270,13 @@
   <div class="section-inner">
     <span class="section-label">Reflexiones</span>
     <h2 class="section-title">Artículos personales</h2>
-
     <div class="personal-grid">
-      <article class="card-personal">
+      <article class="card-personal fade-in">
         <h4>Mi camino en la ilustración científica</h4>
         <p>Una reflexión personal sobre cómo la ilustración científica se convirtió en parte fundamental de mi proceso como microbióloga.</p>
         <a href="articulo1.html" class="card-link">Leer más →</a>
       </article>
-
-      <article class="card-personal">
+      <article class="card-personal fade-in">
         <h4>¿Por qué ilustro microalgas?</h4>
         <p>Una mirada científica, estética y ética sobre el valor de las microalgas en la educación y la divulgación científica.</p>
         <a href="articulo 2.html" class="card-link">Leer más →</a>
@@ -763,9 +1285,36 @@
   </div>
 </section>
 
+<!-- NEWSLETTER -->
+<section class="newsletter-bg" id="newsletter">
+  <div class="newsletter-inner">
+    <span class="section-label center" style="color:var(--verde-claro); display:block; text-align:center;">No te pierdas nada</span>
+    <h2>Suscríbete al blog</h2>
+    <p>Recibe nuevos artículos de microbiología, ilustración científica y divulgación directamente en tu correo. Sin spam, solo ciencia ilustrada.</p>
+    <!-- 
+      INSTRUCCIONES: 
+      1. Crea cuenta gratis en mailchimp.com
+      2. Ve a Audience → Signup forms → Embedded forms
+      3. Copia la URL de acción del formulario
+      4. Reemplaza el action="#" de abajo por tu URL de Mailchimp
+    -->
+    <form class="newsletter-form" action="#" method="post" onsubmit="handleNewsletter(event)">
+      <input
+        type="email"
+        class="newsletter-input"
+        placeholder="tu@correo.com"
+        required
+        name="EMAIL"
+      >
+      <button type="submit" class="newsletter-btn">Suscribirme →</button>
+    </form>
+    <p class="newsletter-note">Sin spam. Te puedes dar de baja cuando quieras.</p>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 · <strong style="color:rgba(255,255,255,0.7)">Biología Ilustrativa</strong> · <a href="/cdn-cgi/l/email-protection#791418001c0b15101757151c14160a5710150c0a0d0b18391e14181015571a1614">Mayerlin Lemos</a></p>
+  <p>© 2026 · <strong style="color:rgba(255,255,255,0.7)">Biología Ilustrativa</strong> · <a href="mailto:mayerlin.lemos.ilustra@gmail.com">Mayerlin Lemos</a> · <a href="https://www.instagram.com/biologia_ilustrativa/" target="_blank">Instagram</a></p>
 </footer>
 
 <!-- BOTÓN FLOTANTE -->
@@ -774,5 +1323,91 @@
   <span>Apoya el blog</span>
 </a>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  const menuBtn = document.getElementById
+<script>
+  // ── Menú móvil ──
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+
+  // ── Modo oscuro ──
+  const darkToggle = document.getElementById('dark-toggle');
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark');
+    darkToggle.textContent = '☀️';
+  }
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    darkToggle.textContent = isDark ? '☀️' : '🌙';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
+  // ── Barra de progreso ──
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    document.getElementById('progress-bar').style.width = progress + '%';
+  });
+
+  // ── Nav activo al scroll ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - 100) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+  // ── Animación fade-in al scroll ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── Filtros de categoría ──
+  function filterCards(category, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.card[data-category]').forEach(card => {
+      if (category === 'all' || card.dataset.category === category) {
+        card.style.display = 'flex';
+        card.style.animation = 'fadeUp 0.4s ease both';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // ── Newsletter placeholder ──
+  function handleNewsletter(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = '¡Gracias! 🌿';
+    btn.style.background = 'var(--acento)';
+    setTimeout(() => {
+      btn.textContent = 'Suscribirme →';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  }
+</script>
+</body>
+</html>
