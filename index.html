@@ -931,15 +931,35 @@
 
       .author-card {
         grid-template-columns: 1fr;
-        padding: 2rem;
-        gap: 1.5rem;
+        padding: 1.5rem;
+        gap: 1rem;
         text-align: center;
       }
 
       .author-photo {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
         margin: 0 auto;
+      }
+
+      .author-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .author-info p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-top: 1rem;
+      }
+
+      .author-roles {
+        justify-content: center;
+      }
+
+      .role-badge {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
       }
 
       .newsletter-form {
@@ -1234,6 +1254,7 @@
       <article class="card fade-in">
         <img src="Portada lectura.png" alt="Top 5 libros recomendados" class="card-img">
         <div class="card-body">
+          <span class="card-date">30 de diciembre de 2025</span>
           <span class="card-category">Recomendación</span>
           <h3 class="card-title">Top 5 libros para personas curiosas por la ciencia</h3>
           <p class="card-desc">La ciencia no solo se aprende en el laboratorio. También se construye leyendo, cuestionando y conectando con la vida cotidiana.</p>
@@ -1244,6 +1265,7 @@
       <article class="card fade-in">
         <img src="Portada diatomeas.png" alt="Reseña diatomeas" class="card-img">
         <div class="card-body">
+          <span class="card-date">7 de enero de 2026</span>
           <span class="card-category">Reseña</span>
           <h3 class="card-title">Reseña: Las diatomeas y los bosques invisibles del océano</h3>
           <p class="card-desc">Un análisis del libro de Pedro Cermeno Aínsa sobre las diatomeas y su papel fundamental en los ecosistemas oceánicos.</p>
@@ -1272,11 +1294,13 @@
     <h2 class="section-title">Artículos personales</h2>
     <div class="personal-grid">
       <article class="card-personal fade-in">
+        <span style="font-size:0.78rem; color:var(--texto-suave); font-weight:500;">7 de diciembre de 2025</span>
         <h4>Mi camino en la ilustración científica</h4>
         <p>Una reflexión personal sobre cómo la ilustración científica se convirtió en parte fundamental de mi proceso como microbióloga.</p>
         <a href="articulo1.html" class="card-link">Leer más →</a>
       </article>
       <article class="card-personal fade-in">
+        <span style="font-size:0.78rem; color:var(--texto-suave); font-weight:500;">14 de diciembre de 2025</span>
         <h4>¿Por qué ilustro microalgas?</h4>
         <p>Una mirada científica, estética y ética sobre el valor de las microalgas en la educación y la divulgación científica.</p>
         <a href="articulo 2.html" class="card-link">Leer más →</a>
