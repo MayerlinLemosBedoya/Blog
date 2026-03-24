@@ -53,6 +53,7 @@
     .intro { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic; color: var(--texto-suave); border-left: 3px solid var(--verde-claro); padding-left: 1.2rem; margin-bottom: 2.5rem; line-height: 1.7; }
     .article-content p { font-size: 1rem; color: var(--texto); margin-bottom: 1.4rem; line-height: 1.85; }
     .article-content h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--verde-oscuro); margin: 3rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--verde-palido); }
+    .article-content h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--verde-medio); margin: 2rem 0 0.8rem; }
     .article-content strong { color: var(--verde-medio); }
     .article-content em { font-style: italic; }
 
@@ -64,6 +65,133 @@
     .microbe-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--verde-oscuro); margin-bottom: 0.5rem; }
     .microbe-card .species { font-style: italic; color: var(--acento); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; }
     .microbe-card p { font-size: 0.87rem; color: var(--texto-suave); line-height: 1.6; margin: 0; }
+
+    /* ── BLOQUE MICROORGANISMO ── */
+    .microorg-block {
+      border: 1px solid var(--verde-palido);
+      border-radius: 18px;
+      overflow: hidden;
+      margin: 2.5rem 0;
+      box-shadow: var(--sombra);
+    }
+    .microorg-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 1.6rem;
+      background: var(--verde-mint);
+      border-bottom: 1px solid var(--verde-palido);
+    }
+    .microorg-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .microorg-header h3 {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--verde-oscuro);
+    }
+    .microorg-header .org-tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.2rem 0.7rem;
+      border-radius: 100px;
+      margin-left: auto;
+    }
+
+    /* GIF container */
+    .gif-wrap {
+      background: #f8f8f6;
+      border-bottom: 1px solid var(--verde-palido);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      min-height: 200px;
+    }
+    .gif-wrap img {
+      max-width: 100%;
+      border-radius: 10px;
+      display: block;
+    }
+    .gif-placeholder {
+      border: 2px dashed var(--verde-claro);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      color: var(--acento);
+      font-size: 0.9rem;
+      width: 100%;
+    }
+    .gif-placeholder span { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+
+    /* Pasos */
+    .pasos-wrap { padding: 1.4rem 1.6rem; }
+    .pasos-wrap p.pasos-intro { font-size: 0.9rem; color: var(--texto-suave); margin-bottom: 1rem; }
+    .pasos-list { display: flex; flex-direction: column; gap: 0.6rem; }
+    .paso {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 0.8rem;
+      align-items: start;
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      background: var(--verde-mint);
+      border: 1px solid var(--verde-palido);
+    }
+    .paso-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .paso-body strong { display: block; font-size: 0.9rem; color: var(--verde-oscuro); margin-bottom: 0.2rem; }
+    .paso-body p { font-size: 0.85rem; color: var(--texto-suave); line-height: 1.6; margin: 0; }
+
+    /* colores por organismo */
+    .org-bacteria .microorg-header { background: #f0faf3; }
+    .org-bacteria .microorg-badge { background: #d8f3dc; }
+    .org-bacteria .org-tag { background: #d8f3dc; color: #2d6a4f; }
+    .org-bacteria .paso-num { background: #2d6a4f; color: #fff; }
+
+    .org-hongo .microorg-header { background: #faeeda; }
+    .org-hongo .microorg-badge { background: #fac775; }
+    .org-hongo .org-tag { background: #faeeda; color: #854f0b; }
+    .org-hongo .paso-num { background: #ba7517; color: #fff; }
+    .org-hongo .paso { background: #fdf6ea; border-color: #fac775; }
+
+    .org-acaro .microorg-header { background: #faece7; }
+    .org-acaro .microorg-badge { background: #f5c4b3; }
+    .org-acaro .org-tag { background: #faece7; color: #993c1d; }
+    .org-acaro .paso-num { background: #d85a30; color: #fff; }
+    .org-acaro .paso { background: #fdf1ed; border-color: #f5c4b3; }
+
+    .org-virus .microorg-header { background: #eeedfe; }
+    .org-virus .microorg-badge { background: #cecbf6; }
+    .org-virus .org-tag { background: #eeedfe; color: #534ab7; }
+    .org-virus .paso-num { background: #534ab7; color: #fff; }
+    .org-virus .paso { background: #f5f4fe; border-color: #cecbf6; }
+
+    .org-staph .microorg-header { background: #f5f4fe; }
+    .org-staph .microorg-badge { background: #cecbf6; }
+    .org-staph .org-tag { background: #eeedfe; color: #3c3489; }
+    .org-staph .paso-num { background: #3c3489; color: #fff; }
+    .org-staph .paso { background: #f5f4fe; border-color: #cecbf6; }
 
     /* Enfermedades */
     .disease-list { display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0; }
@@ -117,6 +245,8 @@
       .article-content { padding: 3rem 1.2rem 4rem; }
       .microbes-grid { grid-template-columns: 1fr; }
       .tips-grid { grid-template-columns: 1fr 1fr; }
+      .microorg-header { flex-wrap: wrap; }
+      .microorg-header .org-tag { margin-left: 0; }
     }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -178,13 +308,13 @@
 
   <div class="microbes-grid">
     <div class="microbe-card">
-      <span class="mic-icon">🍄</span>
+      <span class="mic-icon"></span>
       <h4>Hongos</h4>
       <p class="species">Malassezia sp.</p>
       <p>Levaduras lipofílicas predominantes del cuero cabelludo. Utilizan los lípidos del sebo como fuente de carbono. En equilibrio conviven sin problema, pero su exceso puede generar inflamación.</p>
     </div>
     <div class="microbe-card">
-      <span class="mic-icon">🦠</span>
+      <span class="mic-icon"></span>
       <h4>Bacterias</h4>
       <p class="species">Cutibacterium sp. · Staphylococcus sp.</p>
       <p><em>Cutibacterium</em> participa en el metabolismo lipídico cutáneo. <em>Staphylococcus</em> incluye especies comensales como <em>S. epidermidis</em> y otras potencialmente patógenas.</p>
@@ -192,12 +322,331 @@
   </div>
 
   <div class="highlight-box">
-    💡 Los microorganismos responden constantemente a la <strong>presión selectiva del entorno</strong>. Factores como la salud general, el sistema inmune y los hábitos de higiene influyen directamente en el equilibrio del microbioma capilar.
+    Los microorganismos responden constantemente a la <strong>presión selectiva del entorno</strong>. Factores como la salud general, el sistema inmune y los hábitos de higiene influyen directamente en el equilibrio del microbioma capilar.
   </div>
 
-  <!-- 3. Enfermedades -->
+  <!-- 3. MICROORGANISMOS EN DETALLE -->
+  <h2>Los microorganismos del cuero cabelludo, uno a uno</h2>
+  <p>A continuación exploramos cada microorganismo presente en el cuero cabelludo, cómo actúa y qué efecto produce cuando se sale del equilibrio.</p>
+
+  <!-- ── C. ACNES ── -->
+  <div class="microorg-block org-bacteria">
+    <div class="microorg-header">
+      <div class="microorg-badge"></div>
+      <div>
+        <h3><em>Cutibacterium acnes</em></h3>
+        <p style="font-size:0.82rem;color:var(--texto-suave);margin:0">Bacteria anaerobia · Folículo sebáceo</p>
+      </div>
+      <span class="org-tag">Bacteria</span>
+    </div>
+
+    <div class="gif-wrap">
+      <!-- REEMPLAZA "c_acnes.gif" con el nombre real de tu archivo GIF -->
+     <video autoplay loop muted playsinline style="max-width:100%;border-radius:10px;">
+  <source src="video cacanis.mp4" type="video/mp4">
+</video>
+      <div class="gif-placeholder" style="display:none">
+        <span></span>
+        Aquí va tu GIF de <em>C. acnes</em><br>
+        <small>Nombre del archivo: <code>c_acnes.gif</code></small>
+      </div>
+    </div>
+
+    <div class="pasos-wrap">
+      <p class="pasos-intro">La animación muestra paso a paso cómo <em>Cutibacterium acnes</em> coloniza el folículo y desencadena inflamación:</p>
+      <div class="pasos-list">
+        <div class="paso">
+          <div class="paso-num">1</div>
+          <div class="paso-body">
+            <strong>Folículo sano</strong>
+            <p>El folículo piloso se encuentra en equilibrio. Las glándulas sebáceas producen sebo de forma normal y no hay presencia significativa de bacterias.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">2</div>
+          <div class="paso-body">
+            <strong>Colonización de <em>C. acnes</em></strong>
+            <p>Las primeras bacterias <em>Cutibacterium acnes</em> llegan al folículo. Son anaerobias, es decir, prosperan en ambientes sin oxígeno como el interior del folículo, rico en sebo.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">3</div>
+          <div class="paso-body">
+            <strong>Replicación bacteriana</strong>
+            <p>Las bacterias comienzan a multiplicarse activamente, alimentándose de los lípidos del sebo mediante enzimas como la lipasa.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">4</div>
+          <div class="paso-body">
+            <strong>Proliferación en el folículo</strong>
+            <p>La colonia crece y ocupa mayor espacio dentro del folículo piloso. La acumulación de bacterias y sebo empieza a generar presión sobre las paredes del folículo.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">5</div>
+          <div class="paso-body">
+            <strong>Aumento de irritación</strong>
+            <p>Los ácidos grasos libres producidos por el metabolismo bacteriano irritan el tejido circundante, iniciando una respuesta inflamatoria local.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">6</div>
+          <div class="paso-body">
+            <strong>Acumulación de sebo bloqueado</strong>
+            <p>El orificio del folículo se obstruye. El sebo no puede salir y se acumula junto con las bacterias, creando un ambiente ideal para la inflamación.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">7</div>
+          <div class="paso-body">
+            <strong>Respuesta inmune activada</strong>
+            <p>El sistema inmune detecta la infección y envía células defensivas al área. Esto provoca enrojecimiento, calor y sensibilidad en la zona afectada.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">8</div>
+          <div class="paso-body">
+            <strong>Formación de pústula</strong>
+            <p>La acumulación de pus (células inmunes muertas, bacterias y sebo) forma una pústula visible. En el cuero cabelludo puede manifestarse como una pápula dolorosa.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">9</div>
+          <div class="paso-body">
+            <strong>Foliculitis establecida</strong>
+            <p>Si el proceso no se trata, se establece una foliculitis — inflamación crónica del folículo. En casos severos puede contribuir a la debilitación del folículo y caída del cabello.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MALASSEZIA ── -->
+  <div class="microorg-block org-hongo">
+    <div class="microorg-header">
+      <div class="microorg-badge">🍄</div>
+      <div>
+        <h3><em>Malassezia spp.</em></h3>
+        <p style="font-size:0.82rem;color:var(--texto-suave);margin:0">Hongo levaduriforme · Superficie del cuero cabelludo</p>
+      </div>
+      <span class="org-tag">Hongo</span>
+    </div>
+
+    <div class="gif-wrap">
+      <!-- REEMPLAZA "malassezia.gif" con el nombre real de tu archivo GIF -->
+      <img src="malassezia.gif" alt="Animación de Malassezia causando caspa" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="gif-placeholder" style="display:none">
+        <span>🎞️</span>
+        Aquí irá tu GIF de <em>Malassezia</em><br>
+        <small>Nombre del archivo: <code>malassezia.gif</code></small>
+      </div>
+    </div>
+
+    <div class="pasos-wrap">
+      <p class="pasos-intro"><em>Malassezia</em> es el hongo más abundante en el cuero cabelludo. Cuando se desequilibra, produce la caspa:</p>
+      <div class="pasos-list">
+        <div class="paso">
+          <div class="paso-num">1</div>
+          <div class="paso-body">
+            <strong>Presencia normal en la piel</strong>
+            <p>En condiciones saludables, <em>Malassezia</em> convive de forma inofensiva en la superficie del cuero cabelludo, alimentándose del sebo sin causar síntomas.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">2</div>
+          <div class="paso-body">
+            <strong>Sobrecrecimiento fúngico</strong>
+            <p>Factores como el estrés, cambios hormonales o el uso de productos inadecuados favorecen la multiplicación excesiva del hongo sobre la piel.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">3</div>
+          <div class="paso-body">
+            <strong>Secreción de lipasas</strong>
+            <p>El hongo segrega enzimas llamadas lipasas que descomponen el sebo en ácidos grasos irritantes para el estrato córneo del cuero cabelludo.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">4</div>
+          <div class="paso-body">
+            <strong>Irritación e inflamación</strong>
+            <p>Los ácidos grasos libres producen una respuesta inflamatoria que se manifiesta como picazón, enrojecimiento y sensibilidad en el cuero cabelludo.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">5</div>
+          <div class="paso-body">
+            <strong>Descamación — la caspa</strong>
+            <p>Para defenderse de la irritación, la piel acelera su renovación celular. Las células muertas se acumulan y se desprenden en forma de escamas blancas visibles: la caspa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DEMODEX ── -->
+  <div class="microorg-block org-acaro">
+    <div class="microorg-header">
+      <div class="microorg-badge">🔬</div>
+      <div>
+        <h3><em>Demodex spp.</em></h3>
+        <p style="font-size:0.82rem;color:var(--texto-suave);margin:0">Ácaro microscópico · Interior del folículo piloso</p>
+      </div>
+      <span class="org-tag">Ácaro</span>
+    </div>
+
+    <div class="gif-wrap">
+      <!-- REEMPLAZA "demodex.gif" con el nombre real de tu archivo GIF -->
+      <img src="demodex.gif" alt="Animación de Demodex en el folículo piloso" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="gif-placeholder" style="display:none">
+        <span>🎞️</span>
+        Aquí irá tu GIF de <em>Demodex</em><br>
+        <small>Nombre del archivo: <code>demodex.gif</code></small>
+      </div>
+    </div>
+
+    <div class="pasos-wrap">
+      <p class="pasos-intro"><em>Demodex</em> es el único ácaro que habita permanentemente en el folículo humano. Así actúa:</p>
+      <div class="pasos-list">
+        <div class="paso">
+          <div class="paso-num">1</div>
+          <div class="paso-body">
+            <strong>Hábitat natural en el folículo</strong>
+            <p>Este ácaro de 8 patas y cuerpo translúcido vive dentro del folículo piloso, especialmente en zonas con alta producción de sebo. En bajas densidades es inofensivo.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">2</div>
+          <div class="paso-body">
+            <strong>Alimentación de sebo</strong>
+            <p>Se alimenta de los lípidos del sebo y de células epiteliales. Sus movimientos dentro del folículo son lentos pero constantes, principalmente durante la noche.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">3</div>
+          <div class="paso-body">
+            <strong>Sobrepoblación por factores inmunes</strong>
+            <p>Cuando el sistema inmune se debilita o hay exceso de sebo, la población de ácaros puede aumentar desproporcionadamente, generando una condición llamada demodeciosis.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">4</div>
+          <div class="paso-body">
+            <strong>Inflamación crónica y picazón</strong>
+            <p>La presencia masiva de ácaros provoca irritación mecánica y una respuesta inflamatoria crónica: picazón persistente, enrojecimiento y en algunos casos pérdida de cabello.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── S. EPIDERMIDIS ── -->
+  <div class="microorg-block org-staph">
+    <div class="microorg-header">
+      <div class="microorg-badge">🛡️</div>
+      <div>
+        <h3><em>Staphylococcus epidermidis</em></h3>
+        <p style="font-size:0.82rem;color:var(--texto-suave);margin:0">Bacteria protectora · Superficie cutánea</p>
+      </div>
+      <span class="org-tag">Bacteria comensal</span>
+    </div>
+
+    <div class="gif-wrap">
+      <img src="s_epidermidis.gif" alt="Animación de Staphylococcus epidermidis formando barrera protectora" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="gif-placeholder" style="display:none">
+        <span>🎞️</span>
+        Aquí irá tu GIF de <em>S. epidermidis</em><br>
+        <small>Nombre del archivo: <code>s_epidermidis.gif</code></small>
+      </div>
+    </div>
+
+    <div class="pasos-wrap">
+      <p class="pasos-intro">A diferencia de las bacterias patógenas, <em>S. epidermidis</em> es una aliada de nuestra piel:</p>
+      <div class="pasos-list">
+        <div class="paso">
+          <div class="paso-num">1</div>
+          <div class="paso-body">
+            <strong>Colonización de la superficie</strong>
+            <p>Habita naturalmente sobre el estrato córneo del cuero cabelludo, formando colonias densas y estables que ocupan el espacio disponible.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">2</div>
+          <div class="paso-body">
+            <strong>Formación de barrera antimicrobiana</strong>
+            <p>Produce sustancias bactericidas (bacteriocinas) que inhiben el crecimiento de bacterias potencialmente patógenas como <em>Staphylococcus aureus</em>.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">3</div>
+          <div class="paso-body">
+            <strong>Protección activa</strong>
+            <p>Al ocupar los sitios de adhesión en la piel, impide físicamente que microorganismos dañinos colonicen el cuero cabelludo — una defensa conocida como exclusión competitiva.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── VIRUS LATENTES ── -->
+  <div class="microorg-block org-virus">
+    <div class="microorg-header">
+      <div class="microorg-badge">⚡</div>
+      <div>
+        <h3>Virus latentes en la piel</h3>
+        <p style="font-size:0.82rem;color:var(--texto-suave);margin:0">Virus · Células del estrato cutáneo</p>
+      </div>
+      <span class="org-tag">Virus</span>
+    </div>
+
+    <div class="gif-wrap">
+      <img src="virus_latentes.gif" alt="Animación de virus latentes reactivándose en la piel" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="gif-placeholder" style="display:none">
+        <span>🎞️</span>
+        Aquí irá tu GIF de virus latentes<br>
+        <small>Nombre del archivo: <code>virus_latentes.gif</code></small>
+      </div>
+    </div>
+
+    <div class="pasos-wrap">
+      <p class="pasos-intro">Ciertos virus pueden permanecer inactivos en las células de la piel durante años, reactivándose ante condiciones específicas:</p>
+      <div class="pasos-list">
+        <div class="paso">
+          <div class="paso-num">1</div>
+          <div class="paso-body">
+            <strong>Estado latente</strong>
+            <p>El virus se integra en el material genético de las células cutáneas o se mantiene inactivo sin replicarse. No genera síntomas en esta fase.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">2</div>
+          <div class="paso-body">
+            <strong>Desencadenantes de reactivación</strong>
+            <p>El estrés, la inmunosupresión, cambios hormonales o la exposición solar pueden activar señales moleculares que despiertan al virus de su estado latente.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">3</div>
+          <div class="paso-body">
+            <strong>Replicación activa</strong>
+            <p>Una vez activado, el virus comienza a replicarse dentro de las células, generando nuevas partículas virales que infectan células vecinas.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <div class="paso-num">4</div>
+          <div class="paso-body">
+            <strong>Manifestación en la piel</strong>
+            <p>La reactivación se traduce en síntomas visibles: lesiones, vesículas o inflamación superficial en el cuero cabelludo o zonas adyacentes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Enfermedades -->
   <h2>Cuando se rompe el equilibrio</h2>
-  <p>Problemas como la caspa, la dermatitis seborreica o la irritación surgen cuando se rompe el equilibrio del microbioma capilar.</p>
+  <p>Problemas como la caspa, la dermatitis seborreica o la irritación surgen cuando se altera el balance del microbioma capilar. Cualquiera de los microorganismos descritos anteriormente puede volverse problemático si el entorno favorece su sobrecrecimiento.</p>
 
   <div class="disease-list">
     <div class="disease-item">
@@ -223,13 +672,13 @@
     </div>
   </div>
 
-  <!-- 4. Estrés -->
+  <!-- 5. Estrés -->
   <h2>El papel del estrés y el entorno</h2>
   <p>En las últimas décadas se ha notado un aumento de enfermedades capilares, despertando interés en medicina, dermatología, psicología y ciencias ambientales. El estrés del siglo XXI — altos estándares de vida, sobrecarga laboral, violencia — tiene un impacto directo.</p>
 
   <div class="quote">El estrés puede alterar la respuesta inmune y la composición del microbioma, favoreciendo procesos inflamatorios que se reflejan en síntomas visibles como descamación, picazón y enrojecimiento.</div>
 
-  <!-- 5. Consejos -->
+  <!-- 6. Consejos -->
   <h2>¿Cómo recuperar el equilibrio?</h2>
   <p>La respuesta está en el <strong>cuidado consciente del cabello y el cuero cabelludo</strong>:</p>
 
@@ -274,6 +723,8 @@
   <div class="article-tags">
     <span class="article-tag-item">Microbioma capilar</span>
     <span class="article-tag-item">Malassezia</span>
+    <span class="article-tag-item">C. acnes</span>
+    <span class="article-tag-item">Demodex</span>
     <span class="article-tag-item">Salud cutánea</span>
     <span class="article-tag-item">Microbiología</span>
     <span class="article-tag-item">Dermatología</span>

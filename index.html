@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Biología Ilustrativa | Ciencia y arte</title>
 
-  <!-- SEO Meta tags -->
   <meta name="description" content="Biología Ilustrativa — Divulgación científica ilustrada por Mayerlin Lemos Bedoya. Microbiología, ilustración científica y arte visual desde Colombia.">
   <meta name="keywords" content="biología ilustrativa, ilustración científica, microbiología, divulgación científica, Mayerlin Lemos, Colombia">
   <meta name="author" content="Mayerlin Lemos Bedoya">
 
-  <!-- Open Graph — para que se vea bonito en WhatsApp y LinkedIn -->
   <meta property="og:title" content="Biología Ilustrativa | Donde la ciencia se vuelve visible">
   <meta property="og:description" content="Divulgación científica ilustrada. Microbiología, células, microorganismos y arte visual desde Colombia.">
   <meta property="og:image" content="https://blogbiologiailustrati.netlify.app/Logofinal.png">
@@ -34,8 +32,6 @@
       --blanco: #ffffff;
       --sombra: 0 4px 24px rgba(26, 61, 43, 0.10);
       --sombra-hover: 0 8px 36px rgba(26, 61, 43, 0.18);
-
-      /* Modo oscuro */
       --bg: #ffffff;
       --card-bg: #ffffff;
       --border: var(--verde-palido);
@@ -56,23 +52,10 @@
       border-bottom-color: rgba(116,198,157,0.15);
     }
 
-    body.dark .card {
-      background: var(--card-bg);
-      border-color: var(--border);
-    }
-
-    body.dark .card-personal {
-      background: var(--card-bg);
-      border-color: var(--border);
-    }
-
-    body.dark section[style*="var(--blanco)"] {
-      background: var(--bg) !important;
-    }
-
-    body.dark .recursos-bg {
-      background: #0a1910;
-    }
+    body.dark .card { background: var(--card-bg); border-color: var(--border); }
+    body.dark .card-personal { background: var(--card-bg); border-color: var(--border); }
+    body.dark section[style*="var(--blanco)"] { background: var(--bg) !important; }
+    body.dark .recursos-bg { background: #0a1910; }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -116,7 +99,45 @@
       justify-content: space-between;
     }
 
-    header img { height: 52px; width: auto; object-fit: contain; }
+    /* ── LOGO: isologo + texto Playfair ── */
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .header-logo img {
+      height: 40px;
+      width: 40px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .header-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .header-logo-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--verde-oscuro);
+      letter-spacing: -0.01em;
+    }
+
+    .header-logo-sub {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--acento);
+    }
+
+    body.dark .header-logo-name { color: var(--verde-claro); }
+    body.dark .header-logo-sub { color: rgba(116,198,157,0.7); }
 
     nav { display: flex; align-items: center; gap: 2rem; }
 
@@ -146,7 +167,6 @@
     nav a.active { color: var(--acento); }
     nav a.active::after { width: 100%; }
 
-    /* Botón modo oscuro */
     .dark-toggle {
       background: var(--verde-mint);
       border: 1px solid var(--verde-palido);
@@ -201,7 +221,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Ccircle cx='80' cy='80' r='38' fill='none' stroke='%2374c69d' stroke-width='1.2' opacity='0.25'/%3E%3Ccircle cx='80' cy='80' r='26' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.18'/%3E%3Ccircle cx='66' cy='72' r='5' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.20'/%3E%3Ccircle cx='82' cy='65' r='5' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.20'/%3E%3Ccircle cx='95' cy='75' r='5' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.20'/%3E%3Ccircle cx='90' cy='90' r='5' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.20'/%3E%3Ccircle cx='70' cy='90' r='5' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.20'/%3E%3Crect x='160' y='30' width='18' height='120' rx='9' fill='none' stroke='%2374c69d' stroke-width='1.2' opacity='0.20'/%3E%3Cpath d='M160 50 Q178 60 160 70 Q178 80 160 90 Q178 100 160 110 Q178 120 160 130' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.22'/%3E%3Crect x='240' y='40' width='45' height='70' rx='6' fill='none' stroke='%2374c69d' stroke-width='1.2' opacity='0.20'/%3E%3Cline x1='240' y1='60' x2='285' y2='60' stroke='%2374c69d' stroke-width='0.7' opacity='0.16'/%3E%3Cline x1='240' y1='75' x2='285' y2='75' stroke='%2374c69d' stroke-width='0.7' opacity='0.16'/%3E%3Cline x1='240' y1='90' x2='285' y2='90' stroke='%2374c69d' stroke-width='0.7' opacity='0.16'/%3E%3Cellipse cx='400' cy='70' rx='14' ry='40' fill='none' stroke='%2374c69d' stroke-width='1.2' opacity='0.20'/%3E%3Cline x1='400' y1='30' x2='406' y2='5' stroke='%2374c69d' stroke-width='1' opacity='0.22' stroke-linecap='round'/%3E%3Ccircle cx='510' cy='90' r='32' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.18'/%3E%3Ccircle cx='510' cy='90' r='10' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.18'/%3E%3Ccircle cx='493' cy='80' r='8' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.18'/%3E%3Ccircle cx='527' cy='80' r='8' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.18'/%3E%3Ccircle cx='493' cy='100' r='8' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.18'/%3E%3Ccircle cx='527' cy='100' r='8' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.18'/%3E%3Ccircle cx='510' cy='64' r='8' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.18'/%3E%3Ccircle cx='510' cy='116' r='8' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.18'/%3E%3Cellipse cx='50' cy='230' rx='12' ry='8' fill='none' stroke='%2374c69d' stroke-width='0.9' opacity='0.18'/%3E%3Cellipse cx='74' cy='230' rx='12' ry='8' fill='none' stroke='%2374c69d' stroke-width='0.9' opacity='0.18'/%3E%3Cellipse cx='98' cy='230' rx='12' ry='8' fill='none' stroke='%2374c69d' stroke-width='0.9' opacity='0.18'/%3E%3Cellipse cx='122' cy='230' rx='12' ry='8' fill='none' stroke='%2374c69d' stroke-width='0.9' opacity='0.18'/%3E%3Crect x='38' y='222' width='108' height='16' rx='8' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.14'/%3E%3Cpath d='M200 200 Q260 170 300 200 Q260 230 200 200' fill='none' stroke='%2374c69d' stroke-width='1.2' opacity='0.20'/%3E%3Cellipse cx='380' cy='210' rx='10' ry='18' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.20'/%3E%3Cellipse cx='400' cy='210' rx='10' ry='18' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.20'/%3E%3Cellipse cx='420' cy='210' rx='10' ry='18' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.20'/%3E%3Cellipse cx='440' cy='210' rx='10' ry='18' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.20'/%3E%3Ccircle cx='520' cy='260' r='55' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.10'/%3E%3Ccircle cx='100' cy='380' r='35' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.18'/%3E%3Ccircle cx='100' cy='380' r='22' fill='none' stroke='%2374c69d' stroke-width='0.7' opacity='0.14'/%3E%3Cline x1='65' y1='380' x2='135' y2='380' stroke='%2374c69d' stroke-width='0.6' opacity='0.14'/%3E%3Cline x1='100' y1='345' x2='100' y2='415' stroke='%2374c69d' stroke-width='0.6' opacity='0.14'/%3E%3Crect x='200' y='340' width='14' height='160' rx='7' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.16'/%3E%3Cline x1='207' y1='360' x2='207' y2='375' stroke='%2374c69d' stroke-width='0.6' opacity='0.14'/%3E%3Cline x1='207' y1='385' x2='207' y2='400' stroke='%2374c69d' stroke-width='0.6' opacity='0.14'/%3E%3Cline x1='207' y1='410' x2='207' y2='425' stroke='%2374c69d' stroke-width='0.6' opacity='0.14'/%3E%3Cellipse cx='450' cy='400' rx='13' ry='36' transform='rotate(-20 450 400)' fill='none' stroke='%2374c69d' stroke-width='1.1' opacity='0.18'/%3E%3Cline x1='450' y1='365' x2='458' y2='342' stroke='%2374c69d' stroke-width='1' opacity='0.20' stroke-linecap='round'/%3E%3Cellipse cx='320' cy='460' rx='18' ry='24' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.18'/%3E%3Cellipse cx='355' cy='460' rx='18' ry='24' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.18'/%3E%3Cline x1='337' y1='436' x2='337' y2='484' stroke='%2374c69d' stroke-width='0.8' opacity='0.12'/%3E%3Ccircle cx='140' cy='160' r='3' fill='%2374c69d' opacity='0.14'/%3E%3Ccircle cx='350' cy='130' r='2.5' fill='%2374c69d' opacity='0.14'/%3E%3Ccircle cx='480' cy='180' r='3.5' fill='%2374c69d' opacity='0.12'/%3E%3Ccircle cx='30' cy='320' r='2' fill='%2374c69d' opacity='0.14'/%3E%3Ccircle cx='560' cy='350' r='3' fill='%2374c69d' opacity='0.12'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Ccircle cx='80' cy='80' r='38' fill='none' stroke='%2374c69d' stroke-width='1.2' opacity='0.25'/%3E%3Ccircle cx='80' cy='80' r='26' fill='none' stroke='%2374c69d' stroke-width='0.8' opacity='0.18'/%3E%3Ccircle cx='510' cy='90' r='32' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.18'/%3E%3Ccircle cx='100' cy='380' r='35' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.18'/%3E%3C/svg%3E");
       background-size: 600px 600px;
       background-repeat: repeat;
       z-index: 0;
@@ -246,10 +266,7 @@
       margin-bottom: 1.5rem;
     }
 
-    .hero h1 em {
-      font-style: italic;
-      color: var(--verde-claro);
-    }
+    .hero h1 em { font-style: italic; color: var(--verde-claro); }
 
     .hero p {
       font-size: 1.1rem;
@@ -278,7 +295,6 @@
       box-shadow: 0 8px 24px rgba(116,198,157,0.4);
     }
 
-    /* Stats hero */
     .hero-stats {
       display: flex;
       justify-content: center;
@@ -288,12 +304,7 @@
       border-top: 1px solid rgba(116,198,157,0.2);
     }
 
-    .hero-stat {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
-    }
+    .hero-stat { display: flex; flex-direction: column; align-items: center; gap: 3px; }
 
     .hero-stat-num {
       font-family: 'Playfair Display', serif;
@@ -331,16 +342,8 @@
       margin-bottom: 3rem;
     }
 
-    .section-title.center { text-align: center; }
-    .section-label.center { display: block; text-align: center; }
-
-    /* ─── FILTROS DE CATEGORÍA ─── */
-    .filter-bar {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
-    }
+    /* ─── FILTROS ─── */
+    .filter-bar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
 
     .filter-btn {
       font-size: 0.8rem;
@@ -354,14 +357,13 @@
       transition: all 0.2s;
     }
 
-    .filter-btn:hover,
-    .filter-btn.active {
+    .filter-btn:hover, .filter-btn.active {
       background: var(--verde-oscuro);
       border-color: var(--verde-oscuro);
       color: var(--blanco);
     }
 
-    /* ─── GRID DE ARTÍCULOS ─── */
+    /* ─── GRID ARTÍCULOS ─── */
     .articles-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -379,10 +381,7 @@
       flex-direction: column;
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--sombra-hover);
-    }
+    .card:hover { transform: translateY(-6px); box-shadow: var(--sombra-hover); }
 
     .card-img {
       width: 100%;
@@ -392,12 +391,7 @@
       display: block;
     }
 
-    .card-body {
-      padding: 1.5rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
+    .card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
 
     .card-date {
       font-size: 0.78rem;
@@ -410,7 +404,6 @@
       justify-content: space-between;
     }
 
-    /* Tiempo de lectura */
     .read-time {
       font-size: 0.72rem;
       color: var(--acento);
@@ -420,7 +413,6 @@
       font-weight: 500;
     }
 
-    /* Categoría de la card */
     .card-category {
       display: inline-block;
       font-size: 0.7rem;
@@ -440,13 +432,7 @@
       line-height: 1.4;
     }
 
-    .card-desc {
-      font-size: 0.9rem;
-      color: var(--texto-suave);
-      flex: 1;
-      margin-bottom: 1.2rem;
-      line-height: 1.6;
-    }
+    .card-desc { font-size: 0.9rem; color: var(--texto-suave); flex: 1; margin-bottom: 1.2rem; line-height: 1.6; }
 
     .card-link {
       font-size: 0.88rem;
@@ -461,50 +447,7 @@
 
     .card-link:hover { gap: 0.6rem; }
 
-    .card-buttons {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      margin-top: 0.5rem;
-    }
-
-    .card-btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      padding: 0.5rem 1rem;
-      border-radius: 100px;
-      background: var(--verde-oscuro);
-      color: var(--blanco);
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-
-    .card-btn-primary:hover { background: var(--acento); }
-
-    .card-btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      padding: 0.5rem 1rem;
-      border-radius: 100px;
-      background: transparent;
-      color: var(--acento);
-      text-decoration: none;
-      border: 1.5px solid var(--verde-palido);
-      transition: all 0.2s;
-    }
-
-    .card-btn-secondary:hover {
-      border-color: var(--verde-claro);
-      background: var(--verde-mint);
-    }
-
-    /* ─── REVISTA SECCIÓN ─── */
+    /* ─── REVISTA ─── */
     .revista-bg { background: var(--verde-oscuro); }
 
     .revista-card {
@@ -539,13 +482,7 @@
 
     .revista-img img:hover { transform: rotate(0deg) scale(1.02); }
 
-    .revista-content {
-      padding: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 1rem;
-    }
+    .revista-content { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1rem; }
 
     .revista-tag {
       display: inline-block;
@@ -560,20 +497,8 @@
       border-radius: 100px;
     }
 
-    .revista-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--blanco);
-      line-height: 1.2;
-    }
-
-    .revista-desc {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.6);
-      font-weight: 300;
-      line-height: 1.7;
-    }
+    .revista-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--blanco); line-height: 1.2; }
+    .revista-desc { font-size: 0.9rem; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.7; }
 
     .revista-stats {
       display: flex;
@@ -584,35 +509,11 @@
       border: 1px solid rgba(116,198,157,0.1);
     }
 
-    .revista-stat {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-      flex: 1;
-    }
+    .revista-stat { display: flex; flex-direction: column; align-items: center; gap: 2px; flex: 1; }
+    .revista-stat-num { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--verde-claro); line-height: 1; }
+    .revista-stat-label { font-size: 0.65rem; color: rgba(255,255,255,0.4); letter-spacing: 1px; text-transform: uppercase; text-align: center; }
 
-    .revista-stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--verde-claro);
-      line-height: 1;
-    }
-
-    .revista-stat-label {
-      font-size: 0.65rem;
-      color: rgba(255,255,255,0.4);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      text-align: center;
-    }
-
-    .revista-btns {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-    }
+    .revista-btns { display: flex; gap: 0.8rem; flex-wrap: wrap; }
 
     .btn-revista-primary {
       display: inline-flex;
@@ -628,10 +529,7 @@
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    .btn-revista-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(116,198,157,0.3);
-    }
+    .btn-revista-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(116,198,157,0.3); }
 
     .btn-revista-secondary {
       display: inline-flex;
@@ -648,10 +546,7 @@
       transition: all 0.2s;
     }
 
-    .btn-revista-secondary:hover {
-      border-color: rgba(116,198,157,0.8);
-      background: rgba(116,198,157,0.08);
-    }
+    .btn-revista-secondary:hover { border-color: rgba(116,198,157,0.8); background: rgba(116,198,157,0.08); }
 
     /* ─── RECURSOS ─── */
     .recursos-bg { background: var(--verde-mint); }
@@ -670,17 +565,10 @@
       transition: background 0.2s, transform 0.2s;
     }
 
-    .btn-descarga:hover {
-      background: var(--verde-oscuro);
-      transform: translateY(-1px);
-    }
+    .btn-descarga:hover { background: var(--verde-oscuro); transform: translateY(-1px); }
 
     /* ─── ARTÍCULOS PERSONALES ─── */
-    .personal-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
+    .personal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
 
     .card-personal {
       background: var(--card-bg, var(--blanco));
@@ -701,35 +589,13 @@
       background: linear-gradient(to bottom, var(--verde-claro), var(--acento));
     }
 
-    .card-personal:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--sombra-hover);
-    }
-
-    .card-personal h4 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--verde-oscuro);
-      margin-bottom: 0.75rem;
-      line-height: 1.4;
-    }
-
-    .card-personal p {
-      font-size: 0.9rem;
-      color: var(--texto-suave);
-      margin-bottom: 1.2rem;
-      line-height: 1.6;
-    }
+    .card-personal:hover { transform: translateY(-4px); box-shadow: var(--sombra-hover); }
+    .card-personal h4 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; color: var(--verde-oscuro); margin-bottom: 0.75rem; line-height: 1.4; }
+    .card-personal p { font-size: 0.9rem; color: var(--texto-suave); margin-bottom: 1.2rem; line-height: 1.6; }
 
     /* ─── SOBRE MÍ ─── */
     .sobre-mi-bg { background: var(--verde-oscuro); }
-
-    .sobre-mi-inner {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
+    .sobre-mi-inner { max-width: 900px; margin: 0 auto; }
     .sobre-mi-inner .section-label { color: var(--verde-claro); display: block; text-align: center; }
     .sobre-mi-inner .section-title { color: var(--blanco); margin-bottom: 2rem; text-align: center; }
 
@@ -745,22 +611,8 @@
       backdrop-filter: blur(10px);
     }
 
-    .author-photo {
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--verde-claro);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-    }
-
-    .author-info h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--blanco);
-      margin-bottom: 0.3rem;
-    }
+    .author-photo { width: 280px; height: 280px; border-radius: 50%; object-fit: cover; border: 4px solid var(--verde-claro); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .author-info h3 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--blanco); margin-bottom: 0.3rem; }
 
     .author-badge {
       display: inline-block;
@@ -775,12 +627,7 @@
       text-transform: uppercase;
     }
 
-    .author-roles {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-bottom: 1.2rem;
-    }
+    .author-roles { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.2rem; }
 
     .role-badge {
       background: transparent;
@@ -790,49 +637,18 @@
       font-weight: 500;
       padding: 0.6rem 1.2rem;
       border-radius: 50px;
-      letter-spacing: 0.02em;
     }
 
-    .author-info p {
-      color: rgba(255,255,255,0.8);
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-top: 1.2rem;
-    }
-
+    .author-info p { color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.7; margin-top: 1.2rem; }
     .author-info strong { color: var(--verde-claro); font-weight: 600; }
 
     /* ─── NEWSLETTER ─── */
     .newsletter-bg { background: var(--verde-oscuro); }
+    .newsletter-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+    .newsletter-inner h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2rem); font-weight: 700; color: var(--blanco); margin-bottom: 0.8rem; }
+    .newsletter-inner p { color: rgba(255,255,255,0.6); font-size: 0.95rem; font-weight: 300; margin-bottom: 2rem; line-height: 1.7; }
 
-    .newsletter-inner {
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .newsletter-inner h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 3vw, 2rem);
-      font-weight: 700;
-      color: var(--blanco);
-      margin-bottom: 0.8rem;
-    }
-
-    .newsletter-inner p {
-      color: rgba(255,255,255,0.6);
-      font-size: 0.95rem;
-      font-weight: 300;
-      margin-bottom: 2rem;
-      line-height: 1.7;
-    }
-
-    .newsletter-form {
-      display: flex;
-      gap: 0.5rem;
-      max-width: 480px;
-      margin: 0 auto;
-    }
+    .newsletter-form { display: flex; gap: 0.5rem; max-width: 480px; margin: 0 auto; }
 
     .newsletter-input {
       flex: 1;
@@ -863,30 +679,18 @@
       white-space: nowrap;
     }
 
-    .newsletter-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(116,198,157,0.3);
-    }
+    .newsletter-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(116,198,157,0.3); }
+    .newsletter-note { font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 1rem; }
 
-    .newsletter-note {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.35);
-      margin-top: 1rem;
-    }
-
-    /* ─── FOOTER ─── */
+    /* ─── FOOTER — más delgado ─── */
     footer {
       background: var(--verde-oscuro);
       border-top: 1px solid rgba(116,198,157,0.2);
-      padding: 2.5rem 2rem;
+      padding: 1.2rem 2rem;
       text-align: center;
     }
 
-    footer p {
-      color: rgba(255,255,255,0.5);
-      font-size: 0.85rem;
-    }
-
+    footer p { color: rgba(255,255,255,0.5); font-size: 0.82rem; }
     footer a { color: var(--verde-claro); text-decoration: none; }
 
     /* ─── BOTÓN FLOTANTE ─── */
@@ -909,63 +713,25 @@
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    .fab:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 28px rgba(45,106,79,0.5);
-    }
+    .fab:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(45,106,79,0.5); }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
       nav { display: none; }
       .menu-btn { display: block; }
 
-      .revista-card {
-        grid-template-columns: 1fr;
-      }
+      .revista-card { grid-template-columns: 1fr; }
+      .revista-img { border-right: none; border-bottom: 1px solid rgba(116,198,157,0.15); padding: 2rem; }
 
-      .revista-img {
-        border-right: none;
-        border-bottom: 1px solid rgba(116,198,157,0.15);
-        padding: 2rem;
-      }
+      .author-card { grid-template-columns: 1fr; padding: 1.5rem; gap: 1rem; text-align: center; }
+      .author-photo { width: 130px; height: 130px; margin: 0 auto; display: block; }
+      .author-info h3 { font-size: 1.3rem; }
+      .author-roles { justify-content: center; flex-wrap: wrap; gap: 0.4rem; }
+      .role-badge { font-size: 0.75rem; padding: 0.35rem 0.8rem; }
+      .author-badge { display: block; width: fit-content; margin: 0 auto 0.8rem; }
+      .author-info p { font-size: 0.88rem; text-align: left; }
 
-      .author-card {
-        grid-template-columns: 1fr;
-        padding: 1.5rem;
-        gap: 1rem;
-        text-align: center;
-      }
-
-      .author-photo {
-        width: 180px;
-        height: 180px;
-        margin: 0 auto;
-      }
-
-      .author-info h3 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .author-info p {
-        font-size: 0.9rem;
-        line-height: 1.6;
-        margin-top: 1rem;
-      }
-
-      .author-roles {
-        justify-content: center;
-      }
-
-      .role-badge {
-        font-size: 0.8rem;
-        padding: 0.5rem 1rem;
-      }
-
-      .newsletter-form {
-        flex-direction: column;
-      }
-
+      .newsletter-form { flex-direction: column; }
       section { padding: 3.5rem 1.2rem; }
       .fab span:last-child { display: none; }
       .hero-stats { gap: 1.5rem; }
@@ -977,40 +743,33 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    .hero-inner > * {
-      animation: fadeUp 0.7s ease both;
-    }
-
+    .hero-inner > * { animation: fadeUp 0.7s ease both; }
     .hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
     .hero-inner > *:nth-child(2) { animation-delay: 0.25s; }
     .hero-inner > *:nth-child(3) { animation-delay: 0.4s; }
     .hero-inner > *:nth-child(4) { animation-delay: 0.55s; }
     .hero-inner > *:nth-child(5) { animation-delay: 0.7s; }
 
-    /* Animación al hacer scroll */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
 
-<!-- BARRA DE PROGRESO -->
 <div id="progress-bar"></div>
 
-<!-- HEADER -->
+<!-- HEADER — isologo + texto Playfair -->
 <header>
   <div class="header-inner">
-    <a href="index.html">
-      <img src="Logofinal.png" alt="Logo de Biología Ilustrativa">
+    <!-- Logo: imagen microalga + texto en Playfair -->
+    <a href="index.html" class="header-logo">
+      <img src="Favicon.png" alt="Biología Ilustrativa">
+      <div class="header-logo-text">
+        <span class="header-logo-name">Biología Ilustrativa</span>
+        <span class="header-logo-sub">Ciencia · Arte · Divulgación</span>
+      </div>
     </a>
+
     <button class="menu-btn" id="menu-btn">☰</button>
     <nav id="nav-menu">
       <a href="index.html">Inicio</a>
@@ -1092,7 +851,6 @@
     <span class="section-label">Contenido</span>
     <h2 class="section-title">Lecturas y recomendaciones</h2>
 
-    <!-- Filtros por categoría -->
     <div class="filter-bar">
       <button class="filter-btn active" onclick="filterCards('all', this)">Todos</button>
       <button class="filter-btn" onclick="filterCards('microbiologia', this)">Microbiología</button>
@@ -1106,10 +864,7 @@
         <img src="Portada degradacion.png" alt="Microorganismos degradadores de plástico" class="card-img">
         <div class="card-body">
           <span class="card-category">Microbiología ambiental</span>
-          <div class="card-date">
-            <span>10 de diciembre de 2025</span>
-            <span class="read-time">6 min</span>
-          </div>
+          <div class="card-date"><span>10 de diciembre de 2025</span><span class="read-time">6 min</span></div>
           <h3 class="card-title">Microorganismos degradadores de plástico</h3>
           <p class="card-desc">¿Quiénes son?, ¿cómo lo hacen?, ¿qué dice la literatura científica? Un análisis desde la microbiología ambiental y la biotecnología.</p>
           <a href="recomendacion-microorganismos-plastico.html" class="card-link">Leer artículo →</a>
@@ -1120,10 +875,7 @@
         <img src="Cabello.png" alt="Ecosistema microbiano en el cabello" class="card-img">
         <div class="card-body">
           <span class="card-category">Microbiota</span>
-          <div class="card-date">
-            <span>18 de diciembre de 2025</span>
-            <span class="read-time">5 min</span>
-          </div>
+          <div class="card-date"><span>18 de diciembre de 2025</span><span class="read-time">5 min</span></div>
           <h3 class="card-title">¿En nuestro cabello habita un ecosistema microbiano?</h3>
           <p class="card-desc">Un recorrido por las comunidades microbianas que viven en nuestro cabello, su importancia para la salud y el equilibrio del cuero cabelludo.</p>
           <a href="articulo-cabello.html" class="card-link">Leer artículo →</a>
@@ -1134,10 +886,7 @@
         <img src="Dolly portada.png" alt="La clonación y el futuro" class="card-img">
         <div class="card-body">
           <span class="card-category">Biotecnología</span>
-          <div class="card-date">
-            <span>23 de diciembre de 2025</span>
-            <span class="read-time">7 min</span>
-          </div>
+          <div class="card-date"><span>23 de diciembre de 2025</span><span class="read-time">7 min</span></div>
           <h3 class="card-title">¿Es la clonación la clave para el futuro que conocemos?</h3>
           <p class="card-desc">Un análisis desde la microbiología sobre la clonación, sus tipos, implicaciones éticas y su rol en la ciencia actual.</p>
           <a href="recomendacion-clonacion.html" class="card-link">Leer artículo →</a>
@@ -1148,10 +897,7 @@
         <img src="Portada vacas.jpg" alt="Enfermedad de las vacas locas" class="card-img">
         <div class="card-body">
           <span class="card-category">Seguridad alimentaria</span>
-          <div class="card-date">
-            <span>16 de enero de 2026</span>
-            <span class="read-time">8 min</span>
-          </div>
+          <div class="card-date"><span>16 de enero de 2026</span><span class="read-time">8 min</span></div>
           <h3 class="card-title">Enfermedad de las vacas locas: priones y paradigma alimentario</h3>
           <p class="card-desc">Una enfermedad que cambió el paradigma de los riesgos alimentarios: priones y su impacto en la ciencia y la sociedad.</p>
           <a href="enfermedad-vacas-locas.html" class="card-link">Leer artículo →</a>
@@ -1162,10 +908,7 @@
         <img src="Recurso 12Bacillus cerus portada.png" alt="Bacillus cereus en leche" class="card-img">
         <div class="card-body">
           <span class="card-category">Seguridad alimentaria</span>
-          <div class="card-date">
-            <span>18 de enero de 2026</span>
-            <span class="read-time">6 min</span>
-          </div>
+          <div class="card-date"><span>18 de enero de 2026</span><span class="read-time">6 min</span></div>
           <h3 class="card-title">Contaminación por <em>Bacillus cereus</em> en leche para bebés</h3>
           <p class="card-desc">Una contaminación que ayuda a entender el papel del sistema HACCP y el control microbiológico en la industria alimentaria.</p>
           <a href="bacillus.html" class="card-link">Leer artículo →</a>
@@ -1176,10 +919,7 @@
         <img src="Recurso 24Portada hongos.png" alt="Hongos filamentosos y micotoxinas" class="card-img">
         <div class="card-body">
           <span class="card-category">Microbiología</span>
-          <div class="card-date">
-            <span>4 de febrero de 2026</span>
-            <span class="read-time">7 min</span>
-          </div>
+          <div class="card-date"><span>4 de febrero de 2026</span><span class="read-time">7 min</span></div>
           <h3 class="card-title">Los hongos filamentosos: habitantes silenciosos de nuestros alimentos</h3>
           <p class="card-desc">Un análisis de la relación entre los hongos filamentosos y las micotoxinas en nuestra alimentación cotidiana.</p>
           <a href="hongos.html" class="card-link">Leer artículo →</a>
@@ -1190,10 +930,7 @@
         <img src="Recurso 21amebiasis icon.png" alt="Amebas" class="card-img">
         <div class="card-body">
           <span class="card-category">Parasitología</span>
-          <div class="card-date">
-            <span>17 de marzo de 2026</span>
-            <span class="read-time">8 min</span>
-          </div>
+          <div class="card-date"><span>17 de marzo de 2026</span><span class="read-time">8 min</span></div>
           <h3 class="card-title">Las amebas: mucho más que un parásito</h3>
           <p class="card-desc">Un recorrido por la biología, el ciclo de vida y el rol ecológico de uno de los organismos más fascinantes del mundo microscópico.</p>
           <a href="articulo_amebas.html" class="card-link">Leer artículo →</a>
@@ -1211,7 +948,6 @@
       <span class="section-label" style="color:var(--verde-claro);">Publicación digital · 2026</span>
       <h2 class="section-title" style="color:var(--blanco); margin-bottom:0;">Microcosmos — Atlas Visual</h2>
     </div>
-
     <div class="revista-card fade-in">
       <div class="revista-img">
         <img src="Portada de revista.png" alt="Revista Microcosmos" onerror="this.style.display='none'">
@@ -1221,18 +957,9 @@
         <h3 class="revista-title">Atlas Visual del Mundo Microscópico</h3>
         <p class="revista-desc">12 páginas de divulgación científica con ilustraciones propias, infografías de ciclos de infección, microfotografías reales de laboratorio e hipervínculos activos.</p>
         <div class="revista-stats">
-          <div class="revista-stat">
-            <span class="revista-stat-num">12</span>
-            <span class="revista-stat-label">Páginas</span>
-          </div>
-          <div class="revista-stat" style="border-left:1px solid rgba(116,198,157,0.15); border-right:1px solid rgba(116,198,157,0.15);">
-            <span class="revista-stat-num">7</span>
-            <span class="revista-stat-label">Capítulos</span>
-          </div>
-          <div class="revista-stat">
-            <span class="revista-stat-num">100%</span>
-            <span class="revista-stat-label">Ilustrado</span>
-          </div>
+          <div class="revista-stat"><span class="revista-stat-num">12</span><span class="revista-stat-label">Páginas</span></div>
+          <div class="revista-stat" style="border-left:1px solid rgba(116,198,157,0.15); border-right:1px solid rgba(116,198,157,0.15);"><span class="revista-stat-num">7</span><span class="revista-stat-label">Capítulos</span></div>
+          <div class="revista-stat"><span class="revista-stat-num">100%</span><span class="revista-stat-label">Ilustrado</span></div>
         </div>
         <div class="revista-btns">
           <a href="https://issuu.com/biologiailustrativa/docs/microcosmos_atlas_visual_del_mundo_microsc_pico_" target="_blank" class="btn-revista-primary">📖 Ver revista</a>
@@ -1248,9 +975,7 @@
   <div class="section-inner">
     <span class="section-label">Recursos</span>
     <h2 class="section-title">Aprende con Maye</h2>
-
     <div class="articles-grid">
-
       <article class="card fade-in">
         <img src="Portada lectura.png" alt="Top 5 libros recomendados" class="card-img">
         <div class="card-body">
@@ -1261,7 +986,6 @@
           <a href="top5-libros.html" class="card-link">Leer artículo →</a>
         </div>
       </article>
-
       <article class="card fade-in">
         <img src="Portada diatomeas.png" alt="Reseña diatomeas" class="card-img">
         <div class="card-body">
@@ -1272,7 +996,6 @@
           <a href="reseña diatomeas .html" class="card-link" target="_blank">Leer reseña →</a>
         </div>
       </article>
-
       <article class="card fade-in">
         <img src="RAM.jpg" alt="Cartilla Microalgas y RAM" class="card-img">
         <div class="card-body">
@@ -1282,7 +1005,6 @@
           <span style="font-size:0.82rem; color:var(--acento); font-weight:500;">⏳ Publicación próxima</span>
         </div>
       </article>
-
     </div>
   </div>
 </section>
@@ -1315,28 +1037,15 @@
     <span class="section-label center" style="color:var(--verde-claro); display:block; text-align:center;">No te pierdas nada</span>
     <h2>Suscríbete al blog</h2>
     <p>Recibe nuevos artículos de microbiología, ilustración científica y divulgación directamente en tu correo. Sin spam, solo ciencia ilustrada.</p>
-    <!-- 
-      INSTRUCCIONES: 
-      1. Crea cuenta gratis en mailchimp.com
-      2. Ve a Audience → Signup forms → Embedded forms
-      3. Copia la URL de acción del formulario
-      4. Reemplaza el action="#" de abajo por tu URL de Mailchimp
-    -->
     <form class="newsletter-form" action="#" method="post" onsubmit="handleNewsletter(event)">
-      <input
-        type="email"
-        class="newsletter-input"
-        placeholder="tu@correo.com"
-        required
-        name="EMAIL"
-      >
+      <input type="email" class="newsletter-input" placeholder="tu@correo.com" required name="EMAIL">
       <button type="submit" class="newsletter-btn">Suscribirme →</button>
     </form>
     <p class="newsletter-note">Sin spam. Te puedes dar de baja cuando quieras.</p>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- FOOTER — delgado -->
 <footer>
   <p>© 2026 · <strong style="color:rgba(255,255,255,0.7)">Biología Ilustrativa</strong> · <a href="mailto:mayerlin.lemos.ilustra@gmail.com">Mayerlin Lemos</a> · <a href="https://www.instagram.com/biologia_ilustrativa/" target="_blank">Instagram</a></p>
 </footer>
@@ -1348,18 +1057,13 @@
 </a>
 
 <script>
-  // ── Menú móvil ──
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
 
-  // ── Modo oscuro ──
   const darkToggle = document.getElementById('dark-toggle');
   const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
-    document.body.classList.add('dark');
-    darkToggle.textContent = '☀️';
-  }
+  if (savedTheme === 'dark') { document.body.classList.add('dark'); darkToggle.textContent = '☀️'; }
   darkToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark');
     const isDark = document.body.classList.contains('dark');
@@ -1367,70 +1071,39 @@
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
 
-  // ── Barra de progreso ──
   window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = (scrollTop / docHeight) * 100;
-    document.getElementById('progress-bar').style.width = progress + '%';
+    document.getElementById('progress-bar').style.width = (scrollTop / docHeight * 100) + '%';
   });
 
-  // ── Nav activo al scroll ──
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('nav a[href^="#"]');
-
   window.addEventListener('scroll', () => {
     let current = '';
-    sections.forEach(section => {
-      if (window.scrollY >= section.offsetTop - 100) {
-        current = section.getAttribute('id');
-      }
-    });
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + current) {
-        link.classList.add('active');
-      }
-    });
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
+    navLinks.forEach(l => { l.classList.remove('active'); if (l.getAttribute('href') === '#' + current) l.classList.add('active'); });
   });
 
-  // ── Animación fade-in al scroll ──
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
-
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // ── Filtros de categoría ──
   function filterCards(category, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
     document.querySelectorAll('.card[data-category]').forEach(card => {
-      if (category === 'all' || card.dataset.category === category) {
-        card.style.display = 'flex';
-        card.style.animation = 'fadeUp 0.4s ease both';
-      } else {
-        card.style.display = 'none';
-      }
+      card.style.display = (category === 'all' || card.dataset.category === category) ? 'flex' : 'none';
     });
   }
 
-  // ── Newsletter placeholder ──
   function handleNewsletter(e) {
     e.preventDefault();
     const btn = e.target.querySelector('button');
     btn.textContent = '¡Gracias! 🌿';
     btn.style.background = 'var(--acento)';
-    setTimeout(() => {
-      btn.textContent = 'Suscribirme →';
-      btn.style.background = '';
-      e.target.reset();
-    }, 3000);
+    setTimeout(() => { btn.textContent = 'Suscribirme →'; btn.style.background = ''; e.target.reset(); }, 3000);
   }
 </script>
 <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/4326c219b2ad5046b40aca80c/32780f343d415301e73757df1.js");</script>
