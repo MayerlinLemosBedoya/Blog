@@ -27,7 +27,11 @@
     /* HEADER */
     header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--verde-palido); padding: 0.75rem 2rem; }
     .header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-    header img { height: 52px; width: auto; object-fit: contain; }
+    .header-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .header-logo img { height: 40px; width: 40px; object-fit: contain; flex-shrink: 0; }
+    .header-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .header-logo-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--verde-oscuro); letter-spacing: -0.01em; }
+    .header-logo-sub { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--acento); }
     nav { display: flex; align-items: center; gap: 2rem; }
     nav a { font-weight: 500; font-size: 0.9rem; color: var(--verde-oscuro); text-decoration: none; letter-spacing: 0.03em; position: relative; padding-bottom: 2px; transition: color 0.2s; }
     nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--verde-claro); transition: width 0.3s ease; }
@@ -98,8 +102,8 @@
     .article-tag-item { background: var(--verde-mint); border: 1px solid var(--verde-palido); color: var(--acento); font-size: 0.78rem; font-weight: 500; padding: 0.3rem 0.8rem; border-radius: 100px; }
 
     /* Footer */
-    footer { background: var(--verde-oscuro); border-top: 1px solid rgba(116,198,157,0.2); padding: 2.5rem 2rem; text-align: center; }
-    footer p { color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-bottom: 0.4rem; }
+    footer { background: var(--verde-oscuro); border-top: 1px solid rgba(116,198,157,0.2); padding: 1.2rem 2rem; text-align: center; }
+    footer p { color: rgba(255,255,255,0.5); font-size: 0.82rem; }
     footer a { color: var(--verde-claro); text-decoration: none; }
 
     .fab { position: fixed; bottom: 1.8rem; right: 1.8rem; background: var(--acento); color: var(--blanco); font-weight: 600; font-size: 0.88rem; padding: 0.85rem 1.4rem; border-radius: 100px; text-decoration: none; box-shadow: 0 6px 20px rgba(45,106,79,0.4); display: flex; align-items: center; gap: 0.5rem; z-index: 999; transition: transform 0.2s, box-shadow 0.2s; }
@@ -127,8 +131,14 @@
 
 <!-- HEADER -->
 <header>
-  <div class="header-inner">
-    <a href="index.html"><img src="Logofinal.png" alt="Logo de Biología Ilustrativa"></a>
+    <div class="header-inner">
+    <a href="index.html" class="header-logo">
+      <img src="Favicon.png" alt="Biología Ilustrativa">
+      <div class="header-logo-text">
+        <span class="header-logo-name">Biología Ilustrativa</span>
+        <span class="header-logo-sub">Ciencia · Arte · Divulgación</span>
+      </div>
+    </a>
     <button class="menu-btn" id="menu-btn">☰</button>
     <nav>
       <a href="index.html">Inicio</a>
@@ -245,8 +255,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 · <strong style="color:rgba(255,255,255,0.7)">Biología Ilustrativa</strong> · <a href="mailto:mayerlin.lemos.ilustra@gmail.com">Mayerlin Lemos</a></p>
-  <p>Sígueme en <a href="https://www.instagram.com/biologia_ilustrativa/">Instagram</a></p>
+  <p>© 2026 · <strong style="color:rgba(255,255,255,0.7)">Biología Ilustrativa</strong> · <a href="mailto:mayerlin.lemos.ilustra@gmail.com">Mayerlin Lemos</a> · <a href="https://www.instagram.com/biologia_ilustrativa/" target="_blank">Instagram</a></p>
 </footer>
 
 <a href="apoyo.html" class="fab">

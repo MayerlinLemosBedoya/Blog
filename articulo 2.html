@@ -49,8 +49,11 @@
       justify-content: space-between;
     }
 
-    header img { height: 52px; width: auto; object-fit: contain; }
-
+    .header-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .header-logo img { height: 40px; width: 40px; object-fit: contain; flex-shrink: 0; }
+    .header-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .header-logo-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--verde-oscuro); letter-spacing: -0.01em; }
+    .header-logo-sub { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--acento); }
     nav { display: flex; align-items: center; gap: 2rem; }
 
     nav a {
@@ -335,11 +338,11 @@
     footer {
       background: var(--verde-oscuro);
       border-top: 1px solid rgba(116,198,157,0.2);
-      padding: 2.5rem 2rem;
+      padding: 1.2rem 2rem;
       text-align: center;
     }
 
-    footer p { color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-bottom: 0.4rem; }
+    footer p { color: rgba(255,255,255,0.5); font-size: 0.82rem; }
     footer a { color: var(--verde-claro); text-decoration: none; }
 
     /* Botón flotante */
@@ -387,9 +390,13 @@
 
 <!-- HEADER -->
 <header>
-  <div class="header-inner">
-    <a href="index.html">
-      <img src="Logofinal.png" alt="Logo de Biología Ilustrativa">
+    <div class="header-inner">
+    <a href="index.html" class="header-logo">
+      <img src="Favicon.png" alt="Biología Ilustrativa">
+      <div class="header-logo-text">
+        <span class="header-logo-name">Biología Ilustrativa</span>
+        <span class="header-logo-sub">Ciencia · Arte · Divulgación</span>
+      </div>
     </a>
     <button class="menu-btn" id="menu-btn">☰</button>
     <nav>
@@ -485,8 +492,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 · <strong style="color:rgba(255,255,255,0.7)">Biología Ilustrativa</strong> · <a href="mailto:mayerlin.lemos.ilustra@gmail.com">Mayerlin Lemos</a></p>
-  <p>Sígueme en <a href="https://www.instagram.com/biologia_ilustrativa/">Instagram</a></p>
+  <p>© 2026 · <strong style="color:rgba(255,255,255,0.7)">Biología Ilustrativa</strong> · <a href="mailto:mayerlin.lemos.ilustra@gmail.com">Mayerlin Lemos</a> · <a href="https://www.instagram.com/biologia_ilustrativa/" target="_blank">Instagram</a></p>
 </footer>
 
 <!-- BOTÓN FLOTANTE -->
